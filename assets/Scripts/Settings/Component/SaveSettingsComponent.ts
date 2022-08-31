@@ -14,9 +14,10 @@ export class SaveSettingsComponent extends Component {
     settingDataComponent: SettingsDataComponent
 
     saveSettings() {
-        this.settingsPanel.getComponentsInChildren(AbstractSettingComponent)
-            .forEach((setting: AbstractSettingComponent) => {
+        this.settingsPanel.getComponentsInChildren(AbstractSettingComponent).forEach((
+            setting: AbstractSettingComponent) => {
                 this.settingDataComponent.setSettingData(setting.applyValue(this.settingDataComponent.settingsData))
-            })
+            }
+        )
     }
 }
