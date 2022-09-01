@@ -27,4 +27,8 @@ export class FieldColumn {
     getCellAt(row: number): CellInterface {
         return this.cells.get(row)
     }
+
+    isCellExist(row: number): boolean {
+        return row >= 0 && row < this.height
+    }
 }

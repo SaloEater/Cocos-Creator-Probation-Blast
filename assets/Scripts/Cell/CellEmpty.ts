@@ -1,19 +1,19 @@
 import { CellInterface } from "./CellInterface";
 
 export class CellEmpty implements CellInterface {
-    x: number
-    y: number
+    column: number
+    row: number
 
-    constructor(x: number, y: number) {
-        this.x = x
-        this.y = y
+    constructor(column: number, row: number) {
+        this.column = column
+        this.row = row
     }
 
-    getX(): number {
-        return this.x
+    getColumn(): number {
+        return this.column
     }
 
-    getY(): number {
-        return this.y
+    getRow(): number {
+        return this.row
     }
 }

@@ -6,4 +6,5 @@ export class SettingsData {
     shufflesAmount: number
     pointsToWin: number
     turnsAmount: number
+    superCellAppearenceAmount: number
 }

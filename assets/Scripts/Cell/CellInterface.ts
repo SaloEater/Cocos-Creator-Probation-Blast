@@ -1,4 +1,4 @@
 export interface CellInterface {
-    getX(): number
-    getY(): number
+    getColumn(): number
+    getRow(): number
 }

@@ -14,8 +14,8 @@ export default class FieldColumnTest {
 
     testSet() {
         let fieldColumn = new FieldColumn(0, 1)
-        Assert.assertTypeEquals(CellEmpty, fieldColumn.getCellAt(0))
+        Assert.assertInstanceOf(CellEmpty, fieldColumn.getCellAt(0))
         fieldColumn.setCell(0, new CellSimple(0, 0))
-        Assert.assertTypeEquals(CellSimple, fieldColumn.getCellAt(0))
+        Assert.assertInstanceOf(CellSimple, fieldColumn.getCellAt(0))
     }
 }

@@ -3,6 +3,7 @@ import * as tests from "./Tests"
 export class TestsPipeline {
     run() {
         tests.default.forEach((i) => {
+            let instance = new i()
             let errors = new Map<string, string>()
             console.log(["Running tests for " + i.prototype.constructor.name])
             let functionNames = Object.getOwnPropertyNames(i.prototype)
