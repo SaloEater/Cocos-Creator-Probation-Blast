@@ -1,23 +1,6 @@
+import { CellCoordinated } from "./CellCoordinated";
 import { CellInterface } from "./CellInterface";
 
-export class CellEmpty implements CellInterface {
-    column: number
-    row: number
+export class CellEmpty extends CellCoordinated {
 
-    constructor(column: number, row: number) {
-        this.column = column
-        this.row = row
-    }
-
-    setRow(row: number): void {
-        this.row = row
-    }
-
-    getColumn(): number {
-        return this.column
-    }
-
-    getRow(): number {
-        return this.row
-    }
 }

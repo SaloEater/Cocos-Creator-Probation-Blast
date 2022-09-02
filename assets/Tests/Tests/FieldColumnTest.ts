@@ -19,10 +19,21 @@ export default class FieldColumnTest {
         Assert.assertInstanceOf(CellSimple, fieldColumn.getCellAt(0))
     }
 
-    testSquash() {
+    testSquashLowHeight() {
         let fieldColumn = new FieldColumn(0, 2)
         fieldColumn.setCell(0, new CellSimple(0, 0));
         fieldColumn.squash()
         Assert.assertInstanceOf(CellSimple, fieldColumn.getCellAt(1))
+    }
+
+    testSquashMediumHeight() {
+        let fieldColumn = new FieldColumn(0, 5)
+        fieldColumn.setCell(0, new CellSimple(0, 0));
+        fieldColumn.setCell(2, new CellSimple(0, 2));
+        fieldColumn.setCell(3, new CellSimple(0, 3));
+        fieldColumn.squash()
+        Assert.assertInstanceOf(CellSimple, fieldColumn.getCellAt(2))
+        Assert.assertInstanceOf(CellSimple, fieldColumn.getCellAt(3))
+        Assert.assertInstanceOf(CellSimple, fieldColumn.getCellAt(4))
     }
 }

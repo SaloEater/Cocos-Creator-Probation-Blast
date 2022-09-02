@@ -32,7 +32,7 @@ export class Field {
     }
 
     getColumnAt(column: number): FieldColumn {
-        return this.isCellExist[column]
+        return this.field.get(column)
     }
 
     getCellAt(column: number, row: number): CellInterface {

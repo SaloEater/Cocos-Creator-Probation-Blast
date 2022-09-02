@@ -59,15 +59,23 @@ export class FieldColumn {
 
         groups.forEach(i => {
             let lowestCell = i[0]
-            let row = lowestCell.getRow() + 1
+            let row = lowestCell.getRow()
+            let rowIncreasement = 0
             
-            while (this.isCellExist(row) && this.isCellEmpty(row)) {
-                row++;
+            while (
+                this.isCellExist(row + rowIncreasement + 1)
+                && this.isCellEmpty(row + rowIncreasement + 1)
+            ) {
+                rowIncreasement++
+            }
+
+            if (rowIncreasement === 0) {
+                return
             }
             
             i.forEach(j => {
                 this.setCell(j.getRow(), new CellEmpty(j.getColumn(), j.getRow()))
-                let newRow = j.getRow() + row
+                let newRow = j.getRow() + rowIncreasement
                 this.setCell(newRow, j)
                 j.setRow(newRow)
             })

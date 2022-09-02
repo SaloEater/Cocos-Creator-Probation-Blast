@@ -6,7 +6,7 @@ export class TestsPipeline {
     run() {
         tests.default.forEach((i) => {
             let instance = new i()
-            let errors = new Map<string, string>()
+            let errors = new Map<string[2], string>()
             console.log(["Running tests for " + i.prototype.constructor.name])
             let functionNames = Object.getOwnPropertyNames(i.prototype)
             functionNames.forEach((functionName: string) => {
@@ -15,7 +15,7 @@ export class TestsPipeline {
                     try {
                         testFunction()
                     } catch (error) {
-                        errors.set(functionName, error.message)
+                        errors.set([functionName, error.message], error.stack)
                     }
                 }
             })
