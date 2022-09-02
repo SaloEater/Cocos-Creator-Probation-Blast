@@ -18,4 +18,11 @@ export default class FieldColumnTest {
         fieldColumn.setCell(0, new CellSimple(0, 0))
         Assert.assertInstanceOf(CellSimple, fieldColumn.getCellAt(0))
     }
+
+    testSquash() {
+        let fieldColumn = new FieldColumn(0, 2)
+        fieldColumn.setCell(0, new CellSimple(0, 0));
+        fieldColumn.squash()
+        Assert.assertInstanceOf(CellSimple, fieldColumn.getCellAt(1))
+    }
 }

@@ -1,5 +1,5 @@
 import { CellSimple } from "../Cell/CellSimple";
-import { Field } from "./Field";
+import { Field } from "../Field/Field";
 import { FieldFillingStrategyInterface } from "./FieldFillingStrategyInterface";
 
 export class FieldFillingSimpleStrategy

@@ -1,6 +1,6 @@
 import { CellEmpty } from "../Cell/CellEmpty";
 import { CellBurningStrategyInterface } from "./CellBurningStrategyInterface";
-import { Field } from "./Field";
+import { Field } from "../Field/Field";
 
 export class CellBurningStrategy implements CellBurningStrategyInterface {
     burnCellAt(field: Field, column: number, row: number, mininumAmount: number) {

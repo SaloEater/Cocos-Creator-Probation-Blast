@@ -31,4 +31,50 @@ export class FieldColumn {
     isCellExist(row: number): boolean {
         return row >= 0 && row < this.height
     }
+
+    squash(): void {
+        let groups: CellInterface[][] = []
+
+        let lastAddedHeight: number|null = null
+        let group: CellInterface[] = []
+        for (let row = this.height - 1; row >= 0; row--) {
+            let cell = this.getCellAt(row)
+
+            if (cell instanceof CellEmpty) {
+                continue
+            }
+
+            if (lastAddedHeight && lastAddedHeight - row > 1) {
+                groups.push(group)
+                group = []
+            }
+
+            group.push(cell)
+            lastAddedHeight = row
+        }
+
+        if (group.length > 0) {
+            groups.push(group)
+        }
+
+        groups.forEach(i => {
+            let lowestCell = i[0]
+            let row = lowestCell.getRow() + 1
+            
+            while (this.isCellExist(row) && this.isCellEmpty(row)) {
+                row++;
+            }
+            
+            i.forEach(j => {
+                this.setCell(j.getRow(), new CellEmpty(j.getColumn(), j.getRow()))
+                let newRow = j.getRow() + row
+                this.setCell(newRow, j)
+                j.setRow(newRow)
+            })
+        })
+    }
+
+    isCellEmpty(row: number): boolean {
+        return this.getCellAt(row) instanceof CellEmpty;
+    }
 }

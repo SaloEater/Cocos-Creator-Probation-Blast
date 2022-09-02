@@ -9,6 +9,10 @@ export class CellEmpty implements CellInterface {
         this.row = row
     }
 
+    setRow(row: number): void {
+        this.row = row
+    }
+
     getColumn(): number {
         return this.column
     }

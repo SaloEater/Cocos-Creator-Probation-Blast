@@ -31,6 +31,10 @@ export class Field {
             && this.getColumnAt(column).isCellExist(row)
     }
 
+    getColumnAt(column: number): FieldColumn {
+        return this.isCellExist[column]
+    }
+
     getCellAt(column: number, row: number): CellInterface {
         return this.field.get(column).getCellAt(row)
     }
@@ -114,7 +118,7 @@ export class Field {
         return Object.getPrototypeOf(neighbourCell) === cellPrototype;
     }
 
-    getColumnAt(column: number): FieldColumn {
-        return this.field.get(column)
+    squash() {
+        this.field.forEach(i => i.squash())
     }
 }

@@ -1,3 +1,5 @@
+import { injected } from "saloeater-brandi"
+import { TYPES } from "../Scripts/types"
 import * as tests from "./Tests"
 
 export class TestsPipeline {
