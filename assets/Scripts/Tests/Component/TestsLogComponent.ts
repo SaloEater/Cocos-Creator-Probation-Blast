@@ -1,8 +1,8 @@
 import { injected } from "saloeater-brandi";
 import { Component, _decorator } from "cc";
-import { container } from "../container";
-import { TestsPipeline } from "../../Tests/TestsPipeline";
-import { TYPES } from "../types";
+import { TestsPipeline } from "../../../Tests/TestsPipeline";
+import { container } from "../../container";
+import { TYPES } from "../../types";
 
 const {ccclass} = _decorator
 

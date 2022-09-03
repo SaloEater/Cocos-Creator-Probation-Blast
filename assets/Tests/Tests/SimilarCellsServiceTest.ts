@@ -3,10 +3,11 @@ import { CellSimple } from "../../Scripts/Cell/CellSimple";
 import { container } from "../../Scripts/container";
 import { Field } from "../../Scripts/Field/Field";
 import { SimilarCellsService } from "../../Scripts/SimilarCells/SimilarCellsService";
+import { fillFieldByMap } from "../../Scripts/Tests/FieldTestHelper";
 import { TEST_TYPES } from "../../Scripts/types_test";
 import Assert from "../Assert";
 
-export class SimilarCellsServiceTest {
+export default class SimilarCellsServiceTest {
     service: SimilarCellsService
 
     constructor() {
@@ -18,6 +19,11 @@ export class SimilarCellsServiceTest {
         this.service = container.get(TEST_TYPES.similarCellsService)
     }
 
+    /**
+     * . + .
+     * + + +
+     * . + .
+     */
     testGetAllNeighbourSimilarCells() {
         let field = new Field(3, 3)
         let simpleCellMap = [
@@ -33,7 +39,7 @@ export class SimilarCellsServiceTest {
             [0, 1],
             [2, 1],
         ]
-        SimilarCellsServiceTest.fillFieldByMap(simpleCellMap, field);
+        fillFieldByMap(simpleCellMap, field);
 
         let actual = this.service.findSimilarCells(
             field,
@@ -43,9 +49,16 @@ export class SimilarCellsServiceTest {
         )
 
         Assert.assertArrayLengthEquals(cellMatchingMap.length, actual)
-        SimilarCellsServiceTest.assertAllPositionsAreFilled(cellMatchingMap, actual);
+        this.assertAllPositionsAreFilled(cellMatchingMap, actual);
     }
 
+    /**
+     * . + + + .
+     * + . + . +
+     * + + + + +
+     * + . + . +
+     * . + + + .
+     */
     testGetAllNeighbourSimilarCellsBiggerField() {
         let field = new Field(5, 5)
         let simpleCellMap = [
@@ -85,7 +98,7 @@ export class SimilarCellsServiceTest {
             [1, 4],
             [3, 4],
         ]
-        SimilarCellsServiceTest.fillFieldByMap(simpleCellMap, field);
+        fillFieldByMap(simpleCellMap, field);
 
         let actual = this.service.findSimilarCells(
             field,
@@ -95,16 +108,10 @@ export class SimilarCellsServiceTest {
         )
 
         Assert.assertArrayLengthEquals(cellMatchingMap.length, actual)
-        SimilarCellsServiceTest.assertAllPositionsAreFilled(cellMatchingMap, actual);
+        this.assertAllPositionsAreFilled(cellMatchingMap, actual);
     }
 
-    static fillFieldByMap(simpleCellMap: number[][], field: Field) {
-        simpleCellMap.forEach(
-            i => field.setCell(i[0], i[1], new CellSimple(i[0], i[1]))
-        );
-    }
-
-    static assertAllPositionsAreFilled(
+    private assertAllPositionsAreFilled(
         cellMatchingMap: number[][],
         actual: CellInterface[]
     ) {

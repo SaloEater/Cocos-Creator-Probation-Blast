@@ -6,7 +6,7 @@ import { container } from "../container";
 import { TYPES } from "../types";
 
 export class CellBurningService implements CellBurningServiceInterface {
-    similarCellsService: SimilarCellsServiceInterface
+    private similarCellsService: SimilarCellsServiceInterface
 
     constructor() {
         this.similarCellsService = container.get(TYPES.similarCellsService)
