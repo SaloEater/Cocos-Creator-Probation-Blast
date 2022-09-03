@@ -1,9 +1,9 @@
 import { CellSimple } from "../Cell/CellSimple";
 import { Field } from "../Field/Field";
-import { FieldFillingStrategyInterface } from "./FieldFillingStrategyInterface";
+import { FillFieldServiceInterface } from "./FillFieldServiceInterface";
 
-export class FieldFillingSimpleStrategy
- implements FieldFillingStrategyInterface {
+export class FillFieldService
+ implements FillFieldServiceInterface {
     fill(field: Field): void {
         for (let i = 0; i < field.columns; i++) {
             for (let j = 0; j < field.rows; j++) {

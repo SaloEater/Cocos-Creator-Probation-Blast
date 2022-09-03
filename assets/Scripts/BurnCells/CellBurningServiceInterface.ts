@@ -1,5 +1,5 @@
 import { Field } from "./Field";
 
-export interface CellBurningStrategyInterface {
+export interface CellBurningServiceInterface {
     burnCellAt(field: Field, x: number, y: number, mininumAmount: number)
 }

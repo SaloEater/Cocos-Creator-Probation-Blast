@@ -8,17 +8,17 @@ export class TestsPipeline {
             let instance = new i()
             let errors = new Map<string[2], string>()
             console.log(["Running tests for " + i.prototype.constructor.name])
+
             let functionNames = Object.getOwnPropertyNames(i.prototype)
+                .filter(i => i.startsWith('test'))
             functionNames.forEach((functionName: string) => {
-                if (functionName.startsWith('test')) {
-                    let testFunction = i.prototype[functionName]
-                    try {
-                        testFunction()
-                    } catch (error) {
-                        errors.set([functionName, error.message], error.stack)
-                    }
+                try {
+                    instance[`${functionName}`]()
+                } catch (error) {
+                    errors.set([functionName, error.message], error.stack)
                 }
             })
+            
             if (errors.size > 0) {
                 console.log(...errors)
             }

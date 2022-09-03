@@ -1,5 +1,5 @@
 import { Field } from "./Field";
 
-export interface FieldFillingStrategyInterface {
+export interface FillFieldServiceInterface {
     fill(field: Field): void
 }
