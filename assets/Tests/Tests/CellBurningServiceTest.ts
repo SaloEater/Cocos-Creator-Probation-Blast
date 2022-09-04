@@ -12,11 +12,11 @@ export default class CellBurningServiceTest {
 
     constructor() {
         container
-            .bind(TEST_TYPES.cellBurningService)
+            .bind(TEST_TYPES.testsCellBurningService)
             .toInstance(CellBurningService)
             .inContainerScope()
             
-        this.service = container.get(TEST_TYPES.cellBurningService)
+        this.service = container.get(TEST_TYPES.testsCellBurningService)
     }
 
     /**

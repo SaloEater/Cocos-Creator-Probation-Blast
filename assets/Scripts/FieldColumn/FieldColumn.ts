@@ -32,7 +32,15 @@ export class FieldColumn {
         return row >= 0 && row < this.height
     }
 
-    isCellEmpty(row: number): boolean {
+    isCellEmptyAt(row: number): boolean {
         return this.getCellAt(row) instanceof CellEmpty;
+    }
+
+    isCellEmpty(cell: CellInterface): boolean {
+        return cell instanceof CellEmpty;
+    }
+    
+    isFull(): boolean {
+        return [...this.cells.values()].filter(i => this.isCellEmpty(i)).length === 0
     }
 }

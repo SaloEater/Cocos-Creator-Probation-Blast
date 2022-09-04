@@ -41,7 +41,7 @@ export class SquashFieldService implements SquashFieldInterface {
             
             while (
                 column.isCellExist(row + rowIncreasement + 1)
-                && column.isCellEmpty(row + rowIncreasement + 1)
+                && column.isCellEmptyAt(row + rowIncreasement + 1)
             ) {
                 rowIncreasement++
             }

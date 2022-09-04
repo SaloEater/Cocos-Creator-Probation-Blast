@@ -12,11 +12,11 @@ export default class SimilarCellsServiceTest {
 
     constructor() {
         container
-            .bind(TEST_TYPES.similarCellsService)
+            .bind(TEST_TYPES.testsSimilarCellsService)
             .toInstance(SimilarCellsService)
             .inContainerScope()
             
-        this.service = container.get(TEST_TYPES.similarCellsService)
+        this.service = container.get(TEST_TYPES.testsSimilarCellsService)
     }
 
     /**

@@ -42,4 +42,8 @@ export class Field {
     isCellEmpty(column: number, row: number) {
         return this.getCellAt(column, row) instanceof CellEmpty
     }
+
+    getNotFullColumns(): FieldColumn[] {
+        return [...this.field.values()].filter(i => !i.isFull())
+    }
 }

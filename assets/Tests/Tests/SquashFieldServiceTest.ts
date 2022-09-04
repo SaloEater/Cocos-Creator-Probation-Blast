@@ -10,10 +10,10 @@ export default class SquashFieldServiceTest {
 
     constructor() {
         container
-            .bind(TEST_TYPES.squashFieldService)
+            .bind(TEST_TYPES.testsSquashFieldService)
             .toInstance(SquashFieldService)
             .inContainerScope()
-        this.service = container.get(TEST_TYPES.squashFieldService)
+        this.service = container.get(TEST_TYPES.testsSquashFieldService)
     }
 
     testSquashLowHeight() {
