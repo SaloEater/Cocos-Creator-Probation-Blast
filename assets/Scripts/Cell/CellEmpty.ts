@@ -1,6 +1,6 @@
-import { CellCoordinated } from "./CellCoordinated";
+import { CellWithPosition } from "./CellWithPosition";
 import { CellInterface } from "./CellInterface";
 
-export class CellEmpty extends CellCoordinated {
+export class CellEmpty extends CellWithPosition {
 
 }
