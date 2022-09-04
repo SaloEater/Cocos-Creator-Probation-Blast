@@ -1,5 +1,8 @@
 import { token } from "saloeater-brandi";
 import { TestsPipeline } from "../Tests/TestsPipeline";
+import { CellPositionCalculationsInterface } from "./Cell/CellPositionCalculationsInterface";
+import { CellsPoolInterface } from "./Cell/CellsPoolInterface";
+import { FieldStorageInterface } from "./Field/FieldStorageInterface";
 import { GameSpaceAccessInterface } from "./Field/GameSpaceAccessInterface";
 import { GameSpaceServiceInterface } from "./Field/GameSpaceServiceInterface";
 import { FillFieldServiceInterface } from "./FillField/FillFieldServiceInterface";
@@ -15,6 +18,9 @@ const TYPES = {
     gameSpaceService: token<GameSpaceServiceInterface>('gameSpaceService'),
     squashService: token<SquashFieldInterface>('squashService'),
     fillFieldService: token<FillFieldServiceInterface>('fillFieldService'),
+    cellsPool: token<CellsPoolInterface>('cellsPool'),
+    cellPositionCalculations: token<CellPositionCalculationsInterface>('cellPositionCalculations'),
+    fieldStorage: token<FieldStorageInterface>('fieldStorage'),
 };
 
 export { TYPES };

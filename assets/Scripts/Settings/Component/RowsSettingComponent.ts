@@ -9,7 +9,7 @@ const { ccclass, executeInEditMode } = _decorator
 export class RowsSettingComponent extends AbstractSettingComponent {
     onLoad() {
         this.settingDisplayName = 'Кол-во рядов'
-        this.defaultValue = '8'
+        this.defaultValue = '5'
         super.onLoad()
     }
 

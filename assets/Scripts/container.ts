@@ -5,6 +5,9 @@ import { SimilarCellsService } from './SimilarCells/SimilarCellsService';
 import { GameSpaceService } from './Field/GameSpaceService';
 import { SquashFieldService } from './SquashField/SquashFieldService';
 import { FillFieldService } from './FillField/FillFieldService';
+import { CellPositionCalculationsService } from './Cell/CellPositionCalculationsService';
+import { FillVisualFieldService } from './FillField/FillVisualFieldService';
+import { FieldStorage } from './Field/FieldStorage';
 
 const container = new Container();
 
@@ -30,7 +33,17 @@ container
 
 container
     .bind(TYPES.fillFieldService)
-    .toInstance(FillFieldService)
+    .toInstance(FillVisualFieldService)
+    .inContainerScope()
+
+container
+    .bind(TYPES.cellPositionCalculations)
+    .toInstance(CellPositionCalculationsService)
+    .inContainerScope()
+
+container
+    .bind(TYPES.fieldStorage)
+    .toInstance(FieldStorage)
     .inContainerScope()
 
 export { container }
