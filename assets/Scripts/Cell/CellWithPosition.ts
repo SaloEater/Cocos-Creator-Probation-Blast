@@ -24,4 +24,8 @@ export class CellWithPosition implements CellInterface {
     getRow(): number {
         return this.row
     }
+
+    hasSameType(anotherCell: CellInterface): boolean {
+        return true;
+    }
 }

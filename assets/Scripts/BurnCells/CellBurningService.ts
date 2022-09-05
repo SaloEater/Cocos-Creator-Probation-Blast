@@ -4,6 +4,7 @@ import { Field } from "../Field/Field";
 import { SimilarCellsServiceInterface } from "../SimilarCells/SimilarCellsServiceInterface";
 import { container } from "../container";
 import { TYPES } from "../types";
+import { CellInterface } from "../Cell/CellInterface";
 
 export class CellBurningService implements CellBurningServiceInterface {
     private similarCellsService: SimilarCellsServiceInterface
@@ -20,17 +21,21 @@ export class CellBurningService implements CellBurningServiceInterface {
             row,
             cell
         )
+        similarCells.push(cell)
         
         if (similarCells.length >= mininumAmount) {
-            field.setCell(column, row, new CellEmpty(column, row))
             similarCells.forEach(i =>
-                field.setCell(
-                    i.getColumn(),
-                    i.getRow(),
-                    new CellEmpty(i.getColumn(), i.getRow())
-                )
+                this.replaceCell(field, i)
             )
         }
 
+    }
+
+    protected replaceCell(field: Field, i: CellInterface): void {
+        return field.setCell(
+            i.getColumn(),
+            i.getRow(),
+            new CellEmpty(i.getColumn(), i.getRow())
+        );
     }
 }

@@ -41,6 +41,25 @@ export default class CellBurningServiceTest {
     }
 
     /**
+     * + +
+     * + +
+     */
+    testBurnCellAtSmallFieldSecond(){
+        let field = new Field(2, 2)
+        let simpleCellMap = [
+            [1, 0],
+            [1, 1],
+            [0, 0],
+            [0, 1],
+        ]
+        fillFieldByMap(simpleCellMap, field);
+
+        this.service.burnCellAt(field, 0, 1, 1)
+
+        this.assertFieldIsEmpty(field)
+    }
+
+    /**
      * . + + + .
      * + . + . +
      * + + + + +
@@ -70,7 +89,7 @@ export default class CellBurningServiceTest {
         ]
         fillFieldByMap(simpleCellMap, field);
 
-        this.service.burnCellAt(field, 1, 1, 1)        
+        this.service.burnCellAt(field, 2, 2, 1)        
 
         this.assertFieldIsEmpty(field)
     }

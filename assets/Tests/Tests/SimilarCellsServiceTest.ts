@@ -20,6 +20,36 @@ export default class SimilarCellsServiceTest {
     }
 
     /**
+     * + +
+     * + +
+     */
+    testGetAllNeighbourSimilarCellsSmaller() {
+        let field = new Field(3, 3)
+        let simpleCellMap = [
+            [1, 0],
+            [1, 1],
+            [0, 0],
+            [0, 1],
+        ]
+        let cellMatchingMap = [
+            [1, 0],
+            [0, 0],
+            [0, 1],
+        ]
+        fillFieldByMap(simpleCellMap, field);
+
+        let actual = this.service.findSimilarCells(
+            field,
+            1,
+            1,
+            field.getCellAt(1, 1)
+        )
+
+        Assert.assertArrayLengthEquals(cellMatchingMap.length, actual)
+        this.assertAllPositionsAreFilled(cellMatchingMap, actual);
+    }
+
+    /**
      * . + .
      * + + +
      * . + .

@@ -73,10 +73,10 @@ export class SimilarCellsService implements SimilarCellsServiceInterface {
         .filter(i => field.isCellExist(
             getNeighbourMapColumnIndex(column, i),
             getNeighbourMapRowIndex(row, i)
-        )).filter(i => !field.isCellEmpty(
+        )).filter(i => cell.hasSameType(field.getCellAt(
             getNeighbourMapColumnIndex(column, i),
             getNeighbourMapRowIndex(row, i)
-        ))
+        )))
         .filter(i => this.isCellANewNeighbour(
                 field,
                 getNeighbourMapColumnIndex(column, i),
@@ -121,7 +121,7 @@ export class SimilarCellsService implements SimilarCellsServiceInterface {
                 i.getColumn(),
                 i.getRow(),
                 cell,
-                [...oldNeighbours, ...cellLocalNeighbours],
+                [...oldNeighbours, ...newNeighbours],
                 depth + 1
             );
 

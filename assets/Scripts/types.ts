@@ -1,5 +1,7 @@
 import { token } from "saloeater-brandi";
 import { TestsPipeline } from "../Tests/TestsPipeline";
+import { CellBurnCommandInterface } from "./BurnCells/CellBurnCommandInterface";
+import { CellBurningServiceInterface } from "./BurnCells/CellBurningServiceInterface";
 import { CellPositionCalculationsInterface } from "./Cell/CellPositionCalculationsInterface";
 import { CellsPoolInterface } from "./Cell/CellsPoolInterface";
 import { FieldStorageInterface } from "./Field/FieldStorageInterface";
@@ -21,6 +23,8 @@ const TYPES = {
     cellsPool: token<CellsPoolInterface>('cellsPool'),
     cellPositionCalculations: token<CellPositionCalculationsInterface>('cellPositionCalculations'),
     fieldStorage: token<FieldStorageInterface>('fieldStorage'),
+    cellBurningService: token<CellBurningServiceInterface>('cellBurningService'),
+    cellBurnCommand: token<CellBurnCommandInterface>('cellBurnCommand'),
 };
 
 export { TYPES };

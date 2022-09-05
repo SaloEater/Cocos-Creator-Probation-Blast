@@ -9,7 +9,7 @@ const { ccclass, executeInEditMode } = _decorator
 export class ColumnsSettingComponent extends AbstractSettingComponent {
     onLoad() {
         this.settingDisplayName = 'Кол-во колонок'
-        this.defaultValue = '1'
+        this.defaultValue = '2'
         super.onLoad()
     }
 

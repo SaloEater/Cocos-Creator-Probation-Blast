@@ -4,10 +4,12 @@ import { Container } from 'saloeater-brandi';
 import { SimilarCellsService } from './SimilarCells/SimilarCellsService';
 import { GameSpaceService } from './Field/GameSpaceService';
 import { SquashFieldService } from './SquashField/SquashFieldService';
-import { FillFieldService } from './FillField/FillFieldService';
-import { CellPositionCalculationsService } from './Cell/CellPositionCalculationsService';
-import { FillVisualFieldService } from './FillField/FillVisualFieldService';
 import { FieldStorage } from './Field/FieldStorage';
+import { CellBurningService } from './BurnCells/CellBurningService';
+import { FillVisualFieldService } from './FillField/FillVisualFieldService';
+import { CellPositionCalculationsService } from './Cell/CellPositionCalculationsService';
+import { CellBurnCommand } from './BurnCells/CellBurnCommand';
+import { VisualCellBurningService } from './BurnCells/CellVisualBurning';
 
 const container = new Container();
 
@@ -45,5 +47,15 @@ container
     .bind(TYPES.fieldStorage)
     .toInstance(FieldStorage)
     .inContainerScope()
+    
+container
+    .bind(TYPES.cellBurningService)
+    .toInstance(VisualCellBurningService)
+    .inContainerScope()
+    
+// container
+//     .bind(TYPES.cellBurnCommand)
+//     .toInstance(CellBurnCommand)
+//     .inContainerScope()
 
 export { container }

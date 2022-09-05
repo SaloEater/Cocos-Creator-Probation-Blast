@@ -1,4 +1,5 @@
 import CellBurningServiceTest from "./CellBurningServiceTest"
+import { CellPositionCalculationsServiceTest } from "./CellPositionCalculationsServiceTest"
 import FieldColumnTest from "./FieldColumnTest"
 import FieldTest from "./FieldTest"
 import { FillFieldServiceTest } from "./FillFieldServiceTest"
@@ -12,4 +13,5 @@ export default [
     SimilarCellsServiceTest,
     CellBurningServiceTest,
     FillFieldServiceTest,
+    CellPositionCalculationsServiceTest,
 ]
