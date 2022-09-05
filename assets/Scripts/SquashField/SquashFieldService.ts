@@ -54,8 +54,12 @@ export class SquashFieldService implements SquashFieldInterface {
                 column.setCell(j.getRow(), new CellEmpty(j.getColumn(), j.getRow()))
                 let newRow = j.getRow() + rowIncreasement
                 column.setCell(newRow, j)
-                j.setRow(newRow)
+                this.moveCellDown(j, newRow);
             })
         })
+    }
+
+    protected moveCellDown(cell: CellInterface, newRow: number) {
+        cell.setRow(newRow);
     }
 }

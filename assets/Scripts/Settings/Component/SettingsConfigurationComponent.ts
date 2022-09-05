@@ -1,4 +1,4 @@
-import { Component, Node, _decorator } from "cc";
+import { Component, Node, TERRAIN_HEIGHT_BASE, _decorator } from "cc";
 import { container } from "../../container";
 import { GameSpaceAccessInterface } from "../../Field/GameSpaceAccessInterface";
 import { GameSpaceServiceInterface } from "../../Field/GameSpaceServiceInterface";
@@ -12,17 +12,17 @@ const {ccclass, property} = _decorator
 export class SettingsConfigurationComponent extends Component implements SettingsConfigurationInterface {
     @property(SettingsDataAccessComponent)
     settingsDataAccess: SettingsDataAccessComponent
+    static id: number = 1
+    myId: number = 0
 
-    gameSpaceAccess: GameSpaceAccessInterface
-    gameSpaceService: GameSpaceServiceInterface
+    private gameSpaceAccess: GameSpaceAccessInterface
+    private gameSpaceService: GameSpaceServiceInterface
 
-    onLoad() {
+    start() {
         container
             .bind(TYPES.settingsConfiguration)
             .toConstant(this)
-    }
-
-    start() {            
+        this.myId = SettingsConfigurationComponent.id++
         this.gameSpaceAccess = container.get(TYPES.gameSpaceAccess)
         this.gameSpaceService = container.get(TYPES.gameSpaceService)
     }

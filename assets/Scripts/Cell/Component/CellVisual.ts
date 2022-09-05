@@ -1,4 +1,4 @@
-import { _decorator, Component, UITransform, Vec3, input, Input, __private, EventMouse } from "cc";
+import { _decorator, Component, UITransform, Vec3, input, Input, __private, EventMouse, Animation } from "cc";
 import { CellBurnCommand } from "../../BurnCells/CellBurnCommand";
 import { CellBurnCommandInterface } from "../../BurnCells/CellBurnCommandInterface";
 import { container } from "../../container";
@@ -6,6 +6,8 @@ import { TYPES } from "../../types";
 import { CellInterface } from "../CellInterface";
 import { CellPositionCalculationsInterface } from "../CellPositionCalculationsInterface";
 import { CellSimple } from "../CellSimple";
+import { MoveCellVisualToPositionCommandInterface } from "../MoveCellVisualToPositionCommandInterface";
+import { CellMovementComponent } from "./CellMovementComponent";
 import { CellState } from "./CellState";
 
 const { ccclass } = _decorator
@@ -13,9 +15,11 @@ const { ccclass } = _decorator
 @ccclass
 export class CellVisual extends Component implements CellInterface {
     uiTransform: UITransform
-    cellPositionCalculations: CellPositionCalculationsInterface
     cellBurnCommand: CellBurnCommandInterface
     cellState: CellState
+    animation: Animation
+    cellMovement: CellMovementComponent
+    moveCellCommand: MoveCellVisualToPositionCommandInterface
 
     cellColumn: number
     cellRow: number
@@ -25,38 +29,29 @@ export class CellVisual extends Component implements CellInterface {
     }
 
     setColumn(newColumn: number): void {
-        this.initDependencies()
+        //this.initDependencies()
         this.cellColumn = newColumn
-        let currentPosition = this.node.getPosition()
-
-        this.node.setPosition(new Vec3(
-            this.cellPositionCalculations.getXForColumn(newColumn),
-            currentPosition.y,
-            currentPosition.z,
-        ))
+        this.moveCellCommand.execute(this)
     }
 
     setRow(newRow: number): void {
-        this.initDependencies()
+        //this.initDependencies()
         this.cellRow = newRow
-        let currentPosition = this.node.getPosition()
-
-        this.node.setPosition(new Vec3(
-            currentPosition.x,
-            this.cellPositionCalculations.getYForRow(newRow),
-            currentPosition.z,
-        ))
+        this.moveCellCommand.execute(this)
     }
     
-    initDependencies() {
+    onLoad() {
         this.uiTransform = this.node.getComponent(UITransform)
-        this.cellPositionCalculations = container.get(TYPES.cellPositionCalculations)
         this.cellBurnCommand = container.get(TYPES.cellBurnCommand)
+        this.moveCellCommand = container.get(TYPES.moveCellVisualToPositionCommand)
         this.cellState = this.node.getComponent(CellState)
+        this.animation = this.node.getComponent(Animation)
+        this.cellMovement = this.node.getComponent(CellMovementComponent)
+
         this.node.on(Input.EventType.MOUSE_UP, this.burnCell, this)
     }
 
-    burnCell(event: EventMouse): void {
+    burnCell(): void {
         this.cellBurnCommand.execute(this.cellColumn, this.cellRow)
     }
 
@@ -78,5 +73,15 @@ export class CellVisual extends Component implements CellInterface {
     
     destroyCell() {
         this.node.destroy()
+    }
+
+    playMoveAnimation() {
+        this.animation.play()
+    }
+
+    startMovingTo(x: number, y: number) {
+        this.cellMovement.setTargetX(x)
+        this.cellMovement.setTargetY(y)
+        this.cellMovement.startMoving()
     }
 }

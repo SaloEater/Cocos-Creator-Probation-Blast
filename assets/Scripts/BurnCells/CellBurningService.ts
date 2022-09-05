@@ -5,6 +5,10 @@ import { SimilarCellsServiceInterface } from "../SimilarCells/SimilarCellsServic
 import { TYPES } from "../types";
 import { CellInterface } from "../Cell/CellInterface";
 import { injected } from "saloeater-brandi";
+import { EventTarget } from "cc";
+import { EVENT_TYPES } from "../event_types";
+import { EventClass } from "../Event/event";
+import { CellsBurnStartEvent } from "./Event/CellsBurnStartEvent";
 
 export class CellBurningService implements CellBurningServiceInterface {
     constructor(private similarCellsService: SimilarCellsServiceInterface) {
@@ -21,14 +25,15 @@ export class CellBurningService implements CellBurningServiceInterface {
         similarCells.push(cell)
         
         if (similarCells.length >= mininumAmount) {
+            EventClass.emitEvent(new CellsBurnStartEvent(similarCells.length))
             similarCells.forEach(i =>
-                this.replaceCell(field, i)
+                this.replaceCell(field, i, cell)
             )
         }
 
     }
 
-    protected replaceCell(field: Field, i: CellInterface): void {
+    protected replaceCell(field: Field, i: CellInterface, originCell: CellInterface): void {
         return field.setCell(
             i.getColumn(),
             i.getRow(),

@@ -10,7 +10,6 @@ export class CellBurnCommand implements CellBurnCommandInterface {
     constructor(
         private cellBurningService: CellBurningServiceInterface,
         private fieldStorage: FieldStorageInterface,
-        private squashService: SquashFieldInterface,
         private settingsConfiguration: SettingsConfigurationInterface,
     ) { 
     }
@@ -23,7 +22,6 @@ export class CellBurnCommand implements CellBurnCommandInterface {
             row,
             this.settingsConfiguration.getMinBurnedAmount()
         )
-        this.squashService.squash(field)
     }
 }
 
@@ -31,6 +29,5 @@ injected(
     CellBurnCommand,
     TYPES.cellBurningService.optional,
     TYPES.fieldStorage.optional,
-    TYPES.squashService.optional,
     TYPES.settingsConfiguration.optional,
 )

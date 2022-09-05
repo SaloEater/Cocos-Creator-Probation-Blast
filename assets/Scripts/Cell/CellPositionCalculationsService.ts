@@ -4,7 +4,7 @@ import { TYPES } from "../types";
 import { CellPositionCalculationsInterface } from "./CellPositionCalculationsInterface";
 
 export class CellPositionCalculationsService implements CellPositionCalculationsInterface {
-    constructor(protected settingsConfiguration: SettingsConfigurationInterface) {
+    constructor(private settingsConfiguration: SettingsConfigurationInterface) {
     }
 
     getYForRow(row: number): number {
@@ -14,7 +14,6 @@ export class CellPositionCalculationsService implements CellPositionCalculations
     getXForColumn(column: number): number {
         return this.settingsConfiguration.getCellWidth() * column
     }
-
 }
 
 injected(CellPositionCalculationsService, TYPES.settingsConfiguration.optional)

@@ -10,6 +10,14 @@ import { CellPositionCalculationsService } from './Cell/CellPositionCalculations
 import { CellBurnCommand } from './BurnCells/CellBurnCommand';
 import { VisualCellBurningService } from './BurnCells/CellVisualBurning';
 import { TestsLogComponent } from './Tests/Component/TestsLogComponent';
+import { CellVisualDestroyCommand } from './Cell/CellVisualDestroyCommand';
+import { CellBurningCountStorage } from './BurnCells/CellBurningCountStorage';
+import { CellBurningStartEventHandler } from './BurnCells/EventHandler/CellBurningStartEventHandler';
+import { CellBurningEndEventHandler } from './BurnCells/EventHandler/CellBurningEndEventHandler';
+import { DecrementCellBurningStartEventHandler } from './BurnCells/EventHandler/DecrementCellBurningStartEventHandler';
+import { CellVisualMoveDownCommand } from './Cell/CellVisualMoveDownCommand';
+import { SquashVisualFieldService } from './SquashField/SquashVisualFieldService';
+import { MoveCellVisualToPositionCommand } from './Cell/MoveCellVisualToPositionCommand';
 
 const container = new Container();
 
@@ -29,20 +37,20 @@ container
     .inSingletonScope()
 
 container
+    .bind(TYPES.cellPositionCalculations)
+    .toInstance(CellPositionCalculationsService)
+    .inResolutionScope()       
+
+container
     .bind(TYPES.squashService)
-    .toInstance(SquashFieldService)
-    .inSingletonScope()
+    .toInstance(SquashVisualFieldService)
+    .inResolutionScope()
 
 container
     .bind(TYPES.fillFieldService)
     .toInstance(FillVisualFieldService)
     .inSingletonScope()
-
-container
-    .bind(TYPES.cellPositionCalculations)
-    .toInstance(CellPositionCalculationsService)
-    .inSingletonScope()
-
+    
 container
     .bind(TYPES.fieldStorage)
     .toInstance(FieldStorage)
@@ -57,5 +65,35 @@ container
     .bind(TYPES.cellBurnCommand)
     .toInstance(CellBurnCommand)
     .inSingletonScope()
+
+container
+    .bind(TYPES.cellVisualDestroyCommand)
+    .toInstance(CellVisualDestroyCommand)
+    .inSingletonScope()
+
+container
+    .bind(TYPES.cellBurningCountStorage)
+    .toInstance(CellBurningCountStorage)
+    .inSingletonScope()
+
+container
+    .bind(TYPES.eventHandlerCellBurningStart)
+    .toInstance(CellBurningStartEventHandler)
+    .inSingletonScope()
+
+container
+    .bind(TYPES.eventHandlerDecrementCellBurningStart)
+    .toInstance(DecrementCellBurningStartEventHandler)
+    .inSingletonScope()
+
+container
+    .bind(TYPES.cellVisualMoveDownCommand)
+    .toInstance(CellVisualMoveDownCommand)
+    .inResolutionScope()
+
+container
+    .bind(TYPES.moveCellVisualToPositionCommand)
+    .toInstance(MoveCellVisualToPositionCommand)
+    .inResolutionScope()
 
 export { container }
