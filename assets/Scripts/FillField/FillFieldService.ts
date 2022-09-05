@@ -1,5 +1,5 @@
+import { injected } from "saloeater-brandi";
 import { CellSimple } from "../Cell/CellSimple";
-import { container } from "../container";
 import { Field } from "../Field/Field";
 import { SquashFieldInterface } from "../SquashField/SquashFieldServiceInterface";
 import { TYPES } from "../types";
@@ -7,10 +7,7 @@ import { FillFieldServiceInterface } from "./FillFieldServiceInterface";
 
 export class FillFieldService
  implements FillFieldServiceInterface {
-    private squashService: SquashFieldInterface
-
-    constructor() {
-        this.squashService = container.get(TYPES.squashService)
+    constructor(private squashService: SquashFieldInterface) {
     }
 
     fill(field: Field): void {
@@ -23,3 +20,5 @@ export class FillFieldService
         
     }
 }
+
+injected(FillFieldService, TYPES.squashService.optional)

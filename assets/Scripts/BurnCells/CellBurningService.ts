@@ -2,15 +2,12 @@ import { CellEmpty } from "../Cell/CellEmpty";
 import { CellBurningServiceInterface } from "./CellBurningServiceInterface";
 import { Field } from "../Field/Field";
 import { SimilarCellsServiceInterface } from "../SimilarCells/SimilarCellsServiceInterface";
-import { container } from "../container";
 import { TYPES } from "../types";
 import { CellInterface } from "../Cell/CellInterface";
+import { injected } from "saloeater-brandi";
 
 export class CellBurningService implements CellBurningServiceInterface {
-    private similarCellsService: SimilarCellsServiceInterface
-
-    constructor() {
-        this.similarCellsService = container.get(TYPES.similarCellsService)
+    constructor(private similarCellsService: SimilarCellsServiceInterface) {
     }
 
     burnCellAt(field: Field, column: number, row: number, mininumAmount: number) {
@@ -39,3 +36,5 @@ export class CellBurningService implements CellBurningServiceInterface {
         );
     }
 }
+
+injected(CellBurningService, TYPES.similarCellsService.optional)

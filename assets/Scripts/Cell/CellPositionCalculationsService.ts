@@ -1,15 +1,10 @@
-import { container } from "../container";
-import { GameSpaceAccessInterface } from "../Field/GameSpaceAccessInterface";
-import { GameSpaceServiceInterface } from "../Field/GameSpaceServiceInterface";
+import { injected } from "saloeater-brandi";
 import { SettingsConfigurationInterface } from "../Settings/SettingsConfigurationInterface";
 import { TYPES } from "../types";
 import { CellPositionCalculationsInterface } from "./CellPositionCalculationsInterface";
 
 export class CellPositionCalculationsService implements CellPositionCalculationsInterface {
-    protected settingsConfiguration: SettingsConfigurationInterface
-
-    constructor() {
-        this.settingsConfiguration = container.get(TYPES.settingsConfiguration)
+    constructor(protected settingsConfiguration: SettingsConfigurationInterface) {
     }
 
     getYForRow(row: number): number {
@@ -21,3 +16,5 @@ export class CellPositionCalculationsService implements CellPositionCalculations
     }
 
 }
+
+injected(CellPositionCalculationsService, TYPES.settingsConfiguration.optional)

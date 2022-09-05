@@ -1,8 +1,8 @@
 import { instantiate, Size, UITransform } from "cc";
+import { injected } from "saloeater-brandi";
 import { CellSimple } from "../Cell/CellSimple";
 import { CellsPoolInterface } from "../Cell/CellsPoolInterface";
 import { CellVisual } from "../Cell/Component/CellVisual";
-import { container } from "../container";
 import { Field } from "../Field/Field";
 import { GameSpaceAccessInterface } from "../Field/GameSpaceAccessInterface";
 import { SettingsConfigurationInterface } from "../Settings/SettingsConfigurationInterface";
@@ -12,16 +12,12 @@ import { FillFieldServiceInterface } from "./FillFieldServiceInterface";
 
 export class FillVisualFieldService
  implements FillFieldServiceInterface {
-    private squashService: SquashFieldInterface
-    private cellsPool: CellsPoolInterface
-    private gameSpace: GameSpaceAccessInterface
-    private settingsConfiguration: SettingsConfigurationInterface
-
-    constructor() {
-        this.squashService = container.get(TYPES.squashService)
-        this.cellsPool = container.get(TYPES.cellsPool)
-        this.gameSpace = container.get(TYPES.gameSpaceAccess)
-        this.settingsConfiguration = container.get(TYPES.settingsConfiguration)
+    constructor(
+        private squashService: SquashFieldInterface,
+        private cellsPool: CellsPoolInterface,
+        private gameSpace: GameSpaceAccessInterface,
+        private settingsConfiguration: SettingsConfigurationInterface,
+    ) {
     }
 
     fill(field: Field): void {
@@ -48,3 +44,11 @@ export class FillVisualFieldService
         
     }
 }
+
+injected(
+    FillVisualFieldService,
+    TYPES.squashService.optional,
+    TYPES.cellsPool.optional,
+    TYPES.gameSpaceAccess.optional,
+    TYPES.settingsConfiguration.optional,
+)

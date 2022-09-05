@@ -1,4 +1,4 @@
-import { container } from "../container";
+import { injected } from "saloeater-brandi";
 import { FieldStorageInterface } from "../Field/FieldStorageInterface";
 import { SettingsConfigurationInterface } from "../Settings/SettingsConfigurationInterface";
 import { SquashFieldInterface } from "../SquashField/SquashFieldServiceInterface";
@@ -7,16 +7,12 @@ import { CellBurnCommandInterface } from "./CellBurnCommandInterface";
 import { CellBurningServiceInterface } from "./CellBurningServiceInterface";
 
 export class CellBurnCommand implements CellBurnCommandInterface {
-    cellBurningService: CellBurningServiceInterface
-    fieldStorage: FieldStorageInterface
-    squashService: SquashFieldInterface
-    settingsConfiguration: SettingsConfigurationInterface
-
-    constructor() {
-        this.cellBurningService = container.get(TYPES.cellBurningService)
-        this.fieldStorage = container.get(TYPES.fieldStorage)
-        this.squashService = container.get(TYPES.squashService)
-        this.settingsConfiguration = container.get(TYPES.settingsConfiguration)
+    constructor(
+        private cellBurningService: CellBurningServiceInterface,
+        private fieldStorage: FieldStorageInterface,
+        private squashService: SquashFieldInterface,
+        private settingsConfiguration: SettingsConfigurationInterface,
+    ) { 
     }
 
     execute(column: number, row: number): void {
@@ -30,3 +26,11 @@ export class CellBurnCommand implements CellBurnCommandInterface {
         this.squashService.squash(field)
     }
 }
+
+injected(
+    CellBurnCommand,
+    TYPES.cellBurningService.optional,
+    TYPES.fieldStorage.optional,
+    TYPES.squashService.optional,
+    TYPES.settingsConfiguration.optional,
+)

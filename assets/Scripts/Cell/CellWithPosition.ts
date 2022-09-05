@@ -26,6 +26,8 @@ export class CellWithPosition implements CellInterface {
     }
 
     hasSameType(anotherCell: CellInterface): boolean {
-        return true;
+        const newLocal = Object.getPrototypeOf(this);
+        const newLocal_1 = Object.getPrototypeOf(anotherCell);
+        return newLocal === newLocal_1
     }
 }

@@ -5,6 +5,7 @@ import { container } from "../../Scripts/container"
 import { Field } from "../../Scripts/Field/Field"
 import { fillFieldByMap } from "../../Scripts/Tests/FieldTestHelper"
 import { TEST_TYPES } from "../../Scripts/types_test"
+import { CellTest } from "../Mock/CellTest"
 import Assert from "../Assert"
 
 export default class CellBurningServiceTest {
@@ -41,10 +42,32 @@ export default class CellBurningServiceTest {
     }
 
     /**
+     * . = .
+     * + + +
+     * . + .
+     */
+    testBurnCellAtSmallFieldSecond(){
+        let field = new Field(3, 3)
+        let simpleCellMap = [
+            [1, 0],
+            [1, 1],
+            [1, 2],
+            [0, 1],
+            [2, 1],
+        ]
+        fillFieldByMap(simpleCellMap, field);
+        field.setCell(1, 0, new CellTest(1, 0))
+
+        this.service.burnCellAt(field, 1, 1, 1)
+
+        Assert.assertInstanceOf(CellTest, field.getCellAt(1, 0))
+    }
+
+    /**
      * + +
      * + +
      */
-    testBurnCellAtSmallFieldSecond(){
+    testBurnCellAtSmallFieldSmaller(){
         let field = new Field(2, 2)
         let simpleCellMap = [
             [1, 0],

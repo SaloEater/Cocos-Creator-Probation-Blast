@@ -51,7 +51,7 @@ export class CellVisual extends Component implements CellInterface {
     initDependencies() {
         this.uiTransform = this.node.getComponent(UITransform)
         this.cellPositionCalculations = container.get(TYPES.cellPositionCalculations)
-        this.cellBurnCommand = new CellBurnCommand()
+        this.cellBurnCommand = container.get(TYPES.cellBurnCommand)
         this.cellState = this.node.getComponent(CellState)
         this.node.on(Input.EventType.MOUSE_UP, this.burnCell, this)
     }
