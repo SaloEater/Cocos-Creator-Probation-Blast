@@ -14,7 +14,7 @@ export class SettingsConfigurationMockService implements SettingsConfigurationIn
     }
 
     getMinBurnedAmount(): number {
-        return 1
+        return 2
     }
 
     getShufflesAmount(): number {

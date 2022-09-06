@@ -4,6 +4,7 @@ import { CellPositionCalculationsServiceTest } from "./CellPositionCalculationsS
 import FieldColumnTest from "./FieldColumnTest"
 import FieldTest from "./FieldTest"
 import { FillFieldServiceTest } from "./FillFieldServiceTest"
+import { PlayableFieldServiceTest } from "./PlayableFieldServiceTest"
 import SimilarCellsServiceTest from "./SimilarCellsServiceTest"
 import SquashFieldServiceTest from "./SquashFieldServiceTest"
 
@@ -16,4 +17,5 @@ export default [
     FillFieldServiceTest,
     CellPositionCalculationsServiceTest,
     CellBurnCommandTest,
+    PlayableFieldServiceTest,
 ]

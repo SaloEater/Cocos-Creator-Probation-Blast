@@ -7,6 +7,7 @@ import { fillFieldByMap } from "../../Scripts/Tests/FieldTestHelper"
 import { TEST_TYPES } from "../../Scripts/types_test"
 import { CellTest } from "../Mock/CellTest"
 import Assert from "../Assert"
+import { CellBurningMockService } from "../Mock/CellBurningMockService"
 
 export default class CellBurningServiceTest {
     service: CellBurningService
@@ -14,7 +15,7 @@ export default class CellBurningServiceTest {
     constructor() {
         container
             .bind(TEST_TYPES.testsCellBurningService)
-            .toInstance(CellBurningService)
+            .toInstance(CellBurningMockService)
             .inContainerScope()
             
         this.service = container.get(TEST_TYPES.testsCellBurningService)

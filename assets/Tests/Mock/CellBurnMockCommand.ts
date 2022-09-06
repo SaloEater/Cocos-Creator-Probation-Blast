@@ -11,4 +11,5 @@ injected(
     TEST_TYPES.testsCellBurningService.optional,
     TEST_TYPES.testsFieldStorage.optional,
     TEST_TYPES.testsSettingsConfiguration.optional,
+    TEST_TYPES.testsInputState.optional
 )

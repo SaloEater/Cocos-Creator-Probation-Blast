@@ -3,8 +3,10 @@ import { SettingsConfigurationMockService } from "../Tests/Mock/SettingsConfigur
 import { CellBurnCommand } from "./BurnCells/CellBurnCommand";
 import { CellBurningService } from "./BurnCells/CellBurningService";
 import { CellPositionCalculationsService } from "./Cell/CellPositionCalculationsService";
+import { InputState } from "./CocosCreator/InputState";
 import { FieldStorage } from "./Field/FieldStorage";
 import { FillFieldService } from "./FillField/FillFieldService";
+import { PlayableFieldService } from "./PlayableField/PlayableFieldService";
 import { SimilarCellsService } from "./SimilarCells/SimilarCellsService";
 import { SquashFieldService } from "./SquashField/SquashFieldService";
 
@@ -17,6 +19,8 @@ const TEST_TYPES = {
     testsCellPositionCalculations: token<CellPositionCalculationsService>('testsCellPositionCalculations'),
     testCellBurnCommand: token<CellBurnCommand>('testCellBurnCommand'),
     testsFieldStorage: token<FieldStorage>('testsFieldStorage'),
+    testsPlayableField: token<PlayableFieldService>('testsPlayableField'),
+    testsInputState: token<InputState>('testsInputState'),
 };
 
 export { TEST_TYPES };

@@ -2,6 +2,12 @@ import { CellEmpty } from "../Scripts/Cell/CellEmpty"
 import { CellInterface } from "../Scripts/Cell/CellInterface"
 
 export default class Assert {
+    static assertFalse(actual: boolean) {
+        Assert.assertEquals(false, actual)
+    }
+    static assertTrue(actual: boolean) {
+        Assert.assertEquals(true, actual)
+    }
     static assertArrayLengthEquals(expectedLength: number, actualArray: any[]) {
         if (actualArray.length !== expectedLength) {
             throw new Error(`Length ${actualArray.length} is not equals expected ${expectedLength}`)

@@ -11,10 +11,16 @@ import { CellsPoolInterface } from "./Cell/CellsPoolInterface";
 import { CellVisualDestroyCommandInterface } from "./Cell/CellVisualDestroyCommandInterface";
 import { CellVisualMoveDownCommandInterface } from "./Cell/CellVisualMoveDownCommandInterface";
 import { MoveCellVisualToPositionCommandInterface } from "./Cell/MoveCellVisualToPositionCommandInterface";
+import { TurnOffInputEventHandler } from "./CocosCreator/Event/TurnOffInputEventHandler";
+import { TurnOnInputEventHandler } from "./CocosCreator/Event/TurnOnInputEventHandler";
+import { InputStateInterface } from "./CocosCreator/InputStateInterface";
 import { FieldStorageInterface } from "./Field/FieldStorageInterface";
 import { GameSpaceAccessInterface } from "./Field/GameSpaceAccessInterface";
 import { GameSpaceServiceInterface } from "./Field/GameSpaceServiceInterface";
 import { FillFieldServiceInterface } from "./FillField/FillFieldServiceInterface";
+import { MixFieldInterface } from "./MixField/MixFieldInterface";
+import { PlayableFieldInterface } from "./PlayableField/PlayableFieldInterface";
+import { PointsStorageInterface } from "./Points/PointsStorageInterface";
 import { SettingsConfigurationInterface } from "./Settings/SettingsConfigurationInterface";
 import { SimilarCellsServiceInterface } from "./SimilarCells/SimilarCellsServiceInterface";
 import { SquashFieldInterface } from "./SquashField/SquashFieldServiceInterface";
@@ -38,6 +44,12 @@ const TYPES = {
     eventHandlerDecrementCellBurningStart: token<DecrementCellBurningStartEventHandler>('eventHandlerDecrementCellBurningStart'),
     cellVisualMoveDownCommand: token<CellVisualMoveDownCommandInterface>('cellVisualMoveDownCommand'),
     moveCellVisualToPositionCommand: token<MoveCellVisualToPositionCommandInterface>('moveCellVisualToPositionCommand'),
+    inputState: token<InputStateInterface>('inputState'),
+    eventTurnOffInputState: token<TurnOffInputEventHandler>('eventTurnOffInputState'),
+    eventTurnOnInputState: token<TurnOnInputEventHandler>('eventTurnOnInputState'),
+    mixField: token<MixFieldInterface>('mixField'),
+    pointsStorage: token<PointsStorageInterface>('pointsStorage'),
+    playableField: token<PlayableFieldInterface>('playableField'),
 };
 
 export { TYPES };

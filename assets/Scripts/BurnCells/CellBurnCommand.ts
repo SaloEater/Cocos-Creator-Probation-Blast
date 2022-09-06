@@ -1,4 +1,5 @@
 import { injected } from "saloeater-brandi";
+import { InputStateInterface } from "../CocosCreator/InputStateInterface";
 import { FieldStorageInterface } from "../Field/FieldStorageInterface";
 import { SettingsConfigurationInterface } from "../Settings/SettingsConfigurationInterface";
 import { SquashFieldInterface } from "../SquashField/SquashFieldServiceInterface";
@@ -11,10 +12,15 @@ export class CellBurnCommand implements CellBurnCommandInterface {
         private cellBurningService: CellBurningServiceInterface,
         private fieldStorage: FieldStorageInterface,
         private settingsConfiguration: SettingsConfigurationInterface,
+        private inputState: InputStateInterface
     ) { 
     }
 
     execute(column: number, row: number): void {
+        if (!this.inputState.isOn()) {
+            return;
+        }
+
         let field = this.fieldStorage.get()
         this.cellBurningService.burnCellAt(
             field,
@@ -30,4 +36,5 @@ injected(
     TYPES.cellBurningService.optional,
     TYPES.fieldStorage.optional,
     TYPES.settingsConfiguration.optional,
+    TYPES.inputState.optional,
 )

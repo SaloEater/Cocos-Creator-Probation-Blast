@@ -44,7 +44,6 @@ export class CellMovementComponent extends Component {
         let nextPositionVec2 = currentVec2.add(diffVec2.multiplyScalar(speed))
 
         this.node.setPosition(nextPositionVec2.x, nextPositionVec2.y, currentPosition.z)
-        console.log(this.node.getPosition())
 
         if (Math.sqrt(Math.pow(this.targetX - x, 2) + Math.pow(this.targetY - y, 2)) <= speed) {
             this.enabled = false

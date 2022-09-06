@@ -1,4 +1,5 @@
 import { CellBurnCommand } from "../../Scripts/BurnCells/CellBurnCommand";
+import { InputState } from "../../Scripts/CocosCreator/InputState";
 import { container } from "../../Scripts/container";
 import { Field } from "../../Scripts/Field/Field";
 import { FieldStorage } from "../../Scripts/Field/FieldStorage";
@@ -18,6 +19,11 @@ export class CellBurnCommandTest {
         container
             .bind(TEST_TYPES.testsFieldStorage)
             .toInstance(FieldStorage)
+            .inContainerScope()
+
+        container
+            .bind(TEST_TYPES.testsInputState)
+            .toInstance(InputState)
             .inContainerScope()
 
         container
@@ -54,6 +60,6 @@ export class CellBurnCommandTest {
          * . . .
          * . = .
          */
-        Assert.assertInstanceOf(CellTest, field.getCellAt(1, 2))
+        Assert.assertInstanceOf(CellTest, field.getCellAt(1, 0))
     }
 }

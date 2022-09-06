@@ -25,12 +25,16 @@ export class CellBurningService implements CellBurningServiceInterface {
         similarCells.push(cell)
         
         if (similarCells.length >= mininumAmount) {
-            EventClass.emitEvent(new CellsBurnStartEvent(similarCells.length))
+            this.emitEvent(similarCells.length);
             similarCells.forEach(i =>
                 this.replaceCell(field, i, cell)
             )
         }
 
+    }
+
+    protected emitEvent(length: number) {
+        EventClass.emitEvent(new CellsBurnStartEvent(length));
     }
 
     protected replaceCell(field: Field, i: CellInterface, originCell: CellInterface): void {

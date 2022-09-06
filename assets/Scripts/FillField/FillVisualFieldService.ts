@@ -3,11 +3,13 @@ import { injected } from "saloeater-brandi";
 import { CellSimple } from "../Cell/CellSimple";
 import { CellsPoolInterface } from "../Cell/CellsPoolInterface";
 import { CellVisual } from "../Cell/Component/CellVisual";
+import { EventClass } from "../Event/event";
 import { Field } from "../Field/Field";
 import { GameSpaceAccessInterface } from "../Field/GameSpaceAccessInterface";
 import { SettingsConfigurationInterface } from "../Settings/SettingsConfigurationInterface";
 import { SquashFieldInterface } from "../SquashField/SquashFieldServiceInterface";
 import { TYPES } from "../types";
+import { FieldFillEndEvent } from "./Event/FieldFillEndEvent";
 import { FillFieldServiceInterface } from "./FillFieldServiceInterface";
 
 export class FillVisualFieldService
@@ -41,7 +43,7 @@ export class FillVisualFieldService
                 this.squashService.squashColumn(i)
             } while (!i.isFull())
         })
-        
+        EventClass.emitEvent(new FieldFillEndEvent(field))
     }
 }
 

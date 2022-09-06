@@ -18,6 +18,12 @@ import { DecrementCellBurningStartEventHandler } from './BurnCells/EventHandler/
 import { CellVisualMoveDownCommand } from './Cell/CellVisualMoveDownCommand';
 import { SquashVisualFieldService } from './SquashField/SquashVisualFieldService';
 import { MoveCellVisualToPositionCommand } from './Cell/MoveCellVisualToPositionCommand';
+import { InputState } from './CocosCreator/InputState';
+import { TurnOffInputEventHandler } from './CocosCreator/Event/TurnOffInputEventHandler';
+import { TurnOnInputEventHandler } from './CocosCreator/Event/TurnOnInputEventHandler';
+import { MixField } from './MixField/MixField';
+import { PointsStorage } from './Points/PointsStorage';
+import { PlayableFieldService } from './PlayableField/PlayableFieldService';
 
 const container = new Container();
 
@@ -94,6 +100,36 @@ container
 container
     .bind(TYPES.moveCellVisualToPositionCommand)
     .toInstance(MoveCellVisualToPositionCommand)
+    .inResolutionScope()
+
+container
+    .bind(TYPES.inputState)
+    .toInstance(InputState)
+    .inSingletonScope()
+
+container
+    .bind(TYPES.eventTurnOffInputState)
+    .toInstance(TurnOffInputEventHandler)
+    .inSingletonScope()
+
+container
+    .bind(TYPES.eventTurnOnInputState)
+    .toInstance(TurnOnInputEventHandler)
+    .inSingletonScope()
+
+container
+    .bind(TYPES.mixField)
+    .toInstance(MixField)
+    .inSingletonScope()
+
+container
+    .bind(TYPES.pointsStorage)
+    .toInstance(PointsStorage)
+    .inSingletonScope()
+
+container
+    .bind(TYPES.playableField)
+    .toInstance(PlayableFieldService)
     .inResolutionScope()
 
 export { container }

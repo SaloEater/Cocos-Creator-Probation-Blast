@@ -30,7 +30,6 @@ export class AnimationClipReadComponent extends Component {
         let z = 1
         this.node.on(Input.EventType.MOUSE_UP, (z: EventMouse) => {
             animation.play()
-            console.log(z.target.position)
         }, this)
     }
 }
