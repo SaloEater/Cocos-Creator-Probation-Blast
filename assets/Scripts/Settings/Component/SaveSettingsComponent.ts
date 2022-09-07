@@ -1,8 +1,6 @@
-import { Component, find, Layout, TiledUserNodeData, _decorator } from "cc";
-import { SettingsData } from "../DTO/SettingsData";
+import { Component, Layout, _decorator } from "cc";
 import { AbstractSettingComponent } from "./AbstractSettingComponent";
 import { SettingsDataComponent } from "./DataTransfer/SettingsDataComponent";
-import { MinBurnedAmountSettingComponent } from "./MinBurnedAmountSettingComponent";
 
 const { ccclass, property } = _decorator
 

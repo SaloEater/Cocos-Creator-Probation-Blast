@@ -4,7 +4,6 @@ import { EventHandlerInterface } from "../../Event/EventHandlerInterface";
 import { CheckGameEndEvent } from "../../GameEnd/Event/CheckGameEndEvent";
 import { TYPES } from "../../types";
 import { PointsStorageInterface } from "../PointsStorageInterface";
-import { PointsIncrementedEvent } from "./PointsIncrementedEvent";
 
 export class IncrementPointsEventHandler implements EventHandlerInterface {
     private pointsStorage: PointsStorageInterface
