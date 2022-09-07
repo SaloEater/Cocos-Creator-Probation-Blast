@@ -18,6 +18,9 @@ import { FieldStorageInterface } from "./Field/FieldStorageInterface";
 import { GameSpaceAccessInterface } from "./Field/GameSpaceAccessInterface";
 import { GameSpaceServiceInterface } from "./Field/GameSpaceServiceInterface";
 import { FillFieldServiceInterface } from "./FillField/FillFieldServiceInterface";
+import { CheckGameEndEventHandler } from "./GameEnd/Event/CheckGameEndEventHandler";
+import { GameSceneDirectorInterface } from "./GameEnd/GameSceneDirectorInterface";
+import { GameStateInterface } from "./GameEnd/GameStateInterface";
 import { DecrementShufflesEventHandler } from "./MixField/Event/DecrementShufflesEventHandler";
 import { MixFieldInterface } from "./MixField/MixFieldInterface";
 import { PlayableFieldInterface } from "./PlayableField/PlayableFieldInterface";
@@ -56,6 +59,8 @@ const TYPES = {
     eventHandlerDecrementShuffles: token<DecrementShufflesEventHandler>('eventHandlerDecrementShuffles'),
     turnsLeftStorage: token<PointsStorageInterface>('turnsLeftStorage'),
     eventHandlerDecrementTurns: token<TurnsLeftDecrementEventHandler>('eventHandlerDecrementTurns'),
+    gameState: token<GameStateInterface>('gameState'),
+    gameSceneDirector: token<GameSceneDirectorInterface>('gameSceneDirector'),
 };
 
 export { TYPES };

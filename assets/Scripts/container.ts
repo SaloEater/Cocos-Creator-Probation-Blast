@@ -25,6 +25,8 @@ import { PointsStorage } from './Points/PointsStorage';
 import { PlayableFieldService } from './PlayableField/PlayableFieldService';
 import { DecrementShufflesEventHandler } from './MixField/Event/DecrementShufflesEventHandler';
 import { TurnsLeftDecrementEventHandler } from './TurnsLeft/Event/TurnsLeftDecrementEventHandler';
+import { GameStateService } from './GameEnd/GameStateService';
+import { CheckGameEndEventHandler } from './GameEnd/Event/CheckGameEndEventHandler';
 
 const container = new Container();
 
@@ -152,4 +154,10 @@ container
     .bind(TYPES.eventHandlerDecrementTurns)
     .toInstance(TurnsLeftDecrementEventHandler)
     .inContainerScope()
+
+container
+    .bind(TYPES.gameState)
+    .toInstance(GameStateService)
+    .inContainerScope()
+
 export { container }

@@ -3,6 +3,7 @@ import { CellsBurningEndEventHandler } from "../BurnCells/EventHandler/CellBurni
 import { container } from "../container";
 import { EventClass } from "../Event/event";
 import { EVENT_TYPES } from "../event_types";
+import { CheckGameEndEventHandler } from "../GameEnd/Event/CheckGameEndEventHandler";
 import { DecrementShufflesEventHandler } from "../MixField/Event/DecrementShufflesEventHandler";
 import { MixUnplayableFieldEventHandler } from "../MixField/Event/MixUnplayableFieldEventHandler";
 import { CheckFieldIsPlayableEventHandler } from "../PlayableField/Event/CheckFieldIsPlayableEventHandler";
@@ -43,11 +44,13 @@ export class InitEventsComponent extends Component {
                     new CellsBurningEndEventHandler(),
                     container.get(TYPES.eventTurnOnInputState),
                     container.get(TYPES.eventHandlerDecrementTurns),
+                    new CheckGameEndEventHandler(),
                 ]
             },    
             {
                 'event': EVENT_TYPES.FIELD_FILL_END,
                 'listeners': [
+                    new CheckGameEndEventHandler(),
                     new CheckFieldIsPlayableEventHandler(),
                 ]
             },    
@@ -62,6 +65,11 @@ export class InitEventsComponent extends Component {
                 'event': EVENT_TYPES.FIELD_IS_UNPLAYABLE,
                 'listeners': [
                     new MixUnplayableFieldEventHandler(),
+                ]
+            },    
+            {
+                'event': EVENT_TYPES.CHECK_GAME_END,
+                'listeners': [
                 ]
             },    
         ]
