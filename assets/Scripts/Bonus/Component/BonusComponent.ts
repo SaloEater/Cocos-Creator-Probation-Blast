@@ -1,4 +1,4 @@
-import { _decorator, Component, Button, EventHandler, Input, Sprite, ImageAsset, SpriteFrame } from "cc";
+import { _decorator, Component, Input, Sprite, SpriteFrame } from "cc";
 import { CellActionState } from "../../Cell/CellActionState";
 import { InputStateInterface } from "../../CocosCreator/InputStateInterface";
 import { container } from "../../container";

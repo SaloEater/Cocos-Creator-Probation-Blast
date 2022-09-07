@@ -1,5 +1,4 @@
 import { _decorator } from "cc";
-import { BombCommandInterface } from "../../BonusBomb/BombCommandInterface";
 import { CellVisual } from "../../Cell/Component/CellVisual";
 import { container } from "../../container";
 import { FieldStorageInterface } from "../../Field/FieldStorageInterface";

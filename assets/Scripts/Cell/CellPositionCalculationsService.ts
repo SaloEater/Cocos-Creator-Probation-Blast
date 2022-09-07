@@ -4,7 +4,9 @@ import { TYPES } from "../types";
 import { CellPositionCalculationsInterface } from "./CellPositionCalculationsInterface";
 
 export class CellPositionCalculationsService implements CellPositionCalculationsInterface {
-    constructor(private settingsConfiguration: SettingsConfigurationInterface) {
+    constructor(
+        private settingsConfiguration: SettingsConfigurationInterface
+    ) {
     }
 
     getYForRow(row: number): number {

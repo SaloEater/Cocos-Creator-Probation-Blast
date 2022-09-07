@@ -5,8 +5,6 @@ import { SimilarCellsServiceInterface } from "../SimilarCells/SimilarCellsServic
 import { TYPES } from "../types";
 import { CellInterface } from "../Cell/CellInterface";
 import { injected } from "saloeater-brandi";
-import { EventTarget } from "cc";
-import { EVENT_TYPES } from "../event_types";
 import { EventClass } from "../Event/event";
 import { CellsBurnStartEvent } from "./Event/CellsBurnStartEvent";
 

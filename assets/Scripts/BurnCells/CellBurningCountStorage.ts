@@ -1,4 +1,3 @@
-import { TERRAIN_HEIGHT_BASE } from "cc";
 import { CellBurningCountStorageInterface } from "./CellBurningCountStorageInterface";
 
 export class CellBurningCountStorage implements CellBurningCountStorageInterface {
@@ -6,6 +5,7 @@ export class CellBurningCountStorage implements CellBurningCountStorageInterface
     constructor() {
         this.a = 1 // Манипуляция чтобы контейнер смог создать объект без new
     }
+    
     private count: number = 0
     private initialCount: number = 0
 

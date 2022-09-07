@@ -1,4 +1,4 @@
-import { CCInteger, Component, Vec2, Vec3, _decorator } from "cc";
+import { CCInteger, Component, Vec2, _decorator } from "cc";
 
 const {ccclass, property} = _decorator
 
@@ -9,6 +9,7 @@ export class CellMovementComponent extends Component {
 
     @property(CCInteger)
     targetX: number = 0
+
     @property(CCInteger)  
     targetY: number = 0  
 
@@ -37,9 +38,6 @@ export class CellMovementComponent extends Component {
         let targetVec2 = new Vec2(this.targetX, this.targetY)
         let currentVec2 = new Vec2(x, y)
         let diffVec2 = targetVec2.subtract(currentVec2)
-
-        let diffX = diffVec2.x * speed
-        let diffY = diffVec2.y * speed
 
         let nextPositionVec2 = currentVec2.add(diffVec2.multiplyScalar(speed))
 

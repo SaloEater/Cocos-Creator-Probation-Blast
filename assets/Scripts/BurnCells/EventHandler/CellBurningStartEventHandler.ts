@@ -7,7 +7,6 @@ export class CellBurningStartEventHandler implements EventHandlerInterface {
     constructor(
         private countStorage: CellBurningCountStorageInterface
     ) {
-
     }
 
     handle(count: number) {

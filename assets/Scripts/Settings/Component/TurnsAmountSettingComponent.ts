@@ -1,4 +1,4 @@
-import { EditBox, _decorator } from "cc";
+import { _decorator } from "cc";
 import { SettingsData } from "../DTO/SettingsData";
 import { AbstractSettingComponent } from "./AbstractSettingComponent";
 

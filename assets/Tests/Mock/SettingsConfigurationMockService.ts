@@ -40,4 +40,8 @@ export class SettingsConfigurationMockService implements SettingsConfigurationIn
     getCellHeight(): number {
         return 1
     }
+
+    getBombRadius(): number {
+        return 1
+    }
 }

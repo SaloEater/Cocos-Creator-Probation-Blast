@@ -1,4 +1,3 @@
-import { injected } from "saloeater-brandi";
 import { container } from "../../container";
 import { EventHandlerInterface } from "../../Event/EventHandlerInterface";
 import { TYPES } from "../../types";

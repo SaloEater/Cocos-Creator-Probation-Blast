@@ -10,7 +10,7 @@ export class CellWithPosition implements CellInterface {
     }
 
     setColumn(newColumn: number): void {
-        this.column = this.column
+        this.column = newColumn
     }
 
     setRow(row: number): void {
@@ -28,6 +28,7 @@ export class CellWithPosition implements CellInterface {
     hasSameType(anotherCell: CellInterface): boolean {
         const newLocal = Object.getPrototypeOf(this);
         const newLocal_1 = Object.getPrototypeOf(anotherCell);
+        
         return newLocal === newLocal_1
     }
 }

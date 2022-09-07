@@ -1,5 +1,4 @@
 import { injected } from "saloeater-brandi";
-import { CellPositionCalculationsInterface } from "../Cell/CellPositionCalculationsInterface";
 import { CellVisual } from "../Cell/Component/CellVisual";
 import { Field } from "../Field/Field";
 import { TYPES } from "../types";
@@ -21,13 +20,14 @@ export class SwapCommand implements SwapCommandInterface {
         const originColumn = this.swapStorage.getOriginColumn();
         const originRow = this.swapStorage.getOriginRow();
         let originCell = field.getCellAt(originColumn, originRow) as CellVisual
-        originCell.setCell(column,row)
         
         let targetCell = field.getCellAt(column, row) as CellVisual
-        targetCell.setCell(originColumn, originRow)
 
         field.setCell(originColumn, originRow, targetCell)
         field.setCell(column, row, originCell)
+
+        originCell.setCell(column,row)
+        targetCell.setCell(originColumn, originRow)
 
         this.swapStorage.reset()
     }

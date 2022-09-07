@@ -1,12 +1,8 @@
 import { _decorator, Component, UITransform, Vec3, input, Input, __private, EventMouse, Animation } from "cc";
-import { CellBurnCommand } from "../../BurnCells/CellBurnCommand";
-import { CellBurnCommandInterface } from "../../BurnCells/CellBurnCommandInterface";
 import { container } from "../../container";
 import { TYPES } from "../../types";
 import { CellActionCommandInterface } from "../CellActionCommandInterface";
 import { CellInterface } from "../CellInterface";
-import { CellPositionCalculationsInterface } from "../CellPositionCalculationsInterface";
-import { CellSimple } from "../CellSimple";
 import { MoveCellVisualToPositionCommandInterface } from "../MoveCellVisualToPositionCommandInterface";
 import { CellMovementComponent } from "./CellMovementComponent";
 import { CellState } from "./CellState";
@@ -30,13 +26,11 @@ export class CellVisual extends Component implements CellInterface {
     }
 
     setColumn(newColumn: number): void {
-        //this.initDependencies()
         this.cellColumn = newColumn
         this.moveCellCommand.execute(this)
     }
 
     setRow(newRow: number): void {
-        //this.initDependencies()
         this.cellRow = newRow
         this.moveCellCommand.execute(this)
     }

@@ -1,7 +1,6 @@
 import { Component, Prefab, _decorator } from "cc";
 import { container } from "../../container";
 import { Random } from "../../Random/Random";
-import { SettingsConfigurationInterface } from "../../Settings/SettingsConfigurationInterface";
 import { TYPES } from "../../types";
 import { CellSuperPoolInterface } from "../CellSuperPoolInterface";
 

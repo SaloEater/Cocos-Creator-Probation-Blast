@@ -1,11 +1,10 @@
-import { _decorator, Component, EventHandler, EventTarget } from "cc";
+import { _decorator, Component } from "cc";
 import { RestoreFieldEventHandler } from "../BurnCells/EventHandler/CellsBurningEndEventHandler";
 import { CellSuperSpawnEventHandler } from "../CellSuper/Event/CellSuperSpawnEventHandler";
 import { container } from "../container";
 import { EventClass } from "../Event/event";
 import { EVENT_TYPES } from "../event_types";
 import { CheckGameEndEventHandler } from "../GameEnd/Event/CheckGameEndEventHandler";
-import { DecrementShufflesEventHandler } from "../MixField/Event/DecrementShufflesEventHandler";
 import { MixUnplayableFieldEventHandler } from "../MixField/Event/MixUnplayableFieldEventHandler";
 import { CheckFieldIsPlayableEventHandler } from "../PlayableField/Event/CheckFieldIsPlayableEventHandler";
 import { IncrementPointsEventHandler } from "../Points/Event/IncrementPointsEventHandler";

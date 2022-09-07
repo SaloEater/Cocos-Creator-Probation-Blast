@@ -5,8 +5,7 @@ import { SquashFieldInterface } from "../SquashField/SquashFieldServiceInterface
 import { TYPES } from "../types";
 import { FillFieldServiceInterface } from "./FillFieldServiceInterface";
 
-export class FillFieldService
- implements FillFieldServiceInterface {
+export class FillFieldService implements FillFieldServiceInterface {
     constructor(private squashService: SquashFieldInterface) {
     }
 

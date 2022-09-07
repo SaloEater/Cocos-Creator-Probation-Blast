@@ -1,6 +1,5 @@
 import { CellEmpty } from "../Cell/CellEmpty";
 import { CellInterface } from "../Cell/CellInterface";
-import { CellSimple } from "../Cell/CellSimple";
 
 export class FieldColumn {
     cells: Map<number, CellInterface>

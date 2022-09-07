@@ -8,8 +8,6 @@ import { SettingsConfigurationInterface } from "../Settings/SettingsConfiguratio
 import { TYPES } from "../types";
 import { CellActionCommandInterface } from "./CellActionCommandInterface";
 import { CellActionState } from "./CellActionState";
-import { CellInterface } from "./CellInterface";
-import { CellVisual } from "./Component/CellVisual";
 
 export class CellActionCommand implements CellActionCommandInterface {
     constructor(

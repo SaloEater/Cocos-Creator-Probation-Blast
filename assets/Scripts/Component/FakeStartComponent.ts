@@ -18,15 +18,8 @@ export class FakeStartComponent extends Component {
     private shufflesStorage: PointsStorageInterface
     private turnsLeftStorage: PointsStorageInterface
 
-    firstStart: boolean = true
 
-    update() {
-        if (!this.firstStart) {
-            return
-        }
-        
-        this.firstStart = false;
-
+    start() {
         this.settingsConfiguration = container.get(TYPES.settingsConfiguration)
         this.fillService = container.get(TYPES.fillFieldService)
         this.fieldStorage = container.get(TYPES.fieldStorage)

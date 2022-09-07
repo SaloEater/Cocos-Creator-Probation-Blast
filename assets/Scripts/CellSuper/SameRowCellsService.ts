@@ -7,6 +7,7 @@ export class SameRowCellsService extends SimilarCellsService {
 
     findCellsOnSameRow(field: Field, column: number, row: number): CellInterface[] {
         this.row = row
+        
         return this.findSimilarCells(
             field,
             column,

@@ -1,4 +1,4 @@
-import {Asset, Component, director, game, Scene, SceneAsset, _decorator, Node} from "cc"
+import {Component, director, SceneAsset, _decorator} from "cc"
 
 const {ccclass, property} = _decorator
 

@@ -1,5 +1,3 @@
-import { isValid } from "cc";
-import { injected } from "saloeater-brandi";
 import { CellInterface } from "../Cell/CellInterface";
 import { Field } from "../Field/Field";
 import { SimilarCellsService } from "../SimilarCells/SimilarCellsService";
@@ -10,6 +8,7 @@ export class CellsInRadiusService extends SimilarCellsService implements CellsIn
 
     findCellsInRadius(field: Field, column: number, row: number, radius: number): CellInterface[] {
         this.radius = radius
+        
         return this.findSimilarCells(
             field,
             column,

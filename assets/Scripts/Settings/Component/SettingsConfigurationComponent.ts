@@ -1,4 +1,4 @@
-import { Component, Node, TERRAIN_HEIGHT_BASE, _decorator } from "cc";
+import { Component, _decorator } from "cc";
 import { container } from "../../container";
 import { GameSpaceAccessInterface } from "../../Field/GameSpaceAccessInterface";
 import { GameSpaceServiceInterface } from "../../Field/GameSpaceServiceInterface";

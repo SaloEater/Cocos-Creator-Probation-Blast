@@ -1,4 +1,4 @@
-import { _decorator, Component, Label, ProgressBar } from "cc";
+import { _decorator, Component, ProgressBar } from "cc";
 import { container } from "../../container";
 import { SettingsConfigurationInterface } from "../../Settings/SettingsConfigurationInterface";
 import { TYPES } from "../../types";

@@ -5,8 +5,8 @@ export class BonusChangedEvent implements EventInterface {
     getEventName(): string {
         return EVENT_TYPES.BONUS_CHANGED
     }
+    
     getArgs(): any[] {
         return []
     }
-
 }

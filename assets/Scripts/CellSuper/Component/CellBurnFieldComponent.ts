@@ -1,11 +1,9 @@
 import { _decorator } from "cc";
-import { BombCommandInterface } from "../../BonusBomb/BombCommandInterface";
 import { CellVisual } from "../../Cell/Component/CellVisual";
 import { container } from "../../container";
 import { FieldStorageInterface } from "../../Field/FieldStorageInterface";
 import { TYPES } from "../../types";
 import { BurnFieldCommand } from "../BurnFieldCommand";
-import { BurnRowCommand } from "../BurnRowCommand";
 
 const {ccclass} = _decorator
 

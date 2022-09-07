@@ -1,4 +1,3 @@
-import { instantiate } from "cc";
 import { injected } from "saloeater-brandi";
 import { CellVisualInstanceService } from "../Cell/CellVisualInstanceService";
 import { CellVisual } from "../Cell/Component/CellVisual";

@@ -3,7 +3,6 @@ import { injected } from "saloeater-brandi";
 import { GameSpaceAccessInterface } from "../Field/GameSpaceAccessInterface";
 import { SettingsConfigurationInterface } from "../Settings/SettingsConfigurationInterface";
 import { TYPES } from "../types";
-import { CellVisual } from "./Component/CellVisual";
 
 export class CellVisualInstanceService {
     constructor(

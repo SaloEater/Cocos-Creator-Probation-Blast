@@ -1,4 +1,4 @@
-import {Asset, Component, director, game, Scene, SceneAsset, _decorator, Node, find} from "cc"
+import { Component, _decorator, Node } from "cc"
 import { SettingsData } from "../DTO/SettingsData"
 import { SettingsDataComponent } from "./DataTransfer/SettingsDataComponent"
 

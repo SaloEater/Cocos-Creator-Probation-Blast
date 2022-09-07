@@ -7,7 +7,6 @@ export abstract class CellSuperBurnCommand {
     constructor(
         private inputState: InputStateInterface,
     ) {
-        
     }
 
     abstract execute(field: Field, column: number, row: number);

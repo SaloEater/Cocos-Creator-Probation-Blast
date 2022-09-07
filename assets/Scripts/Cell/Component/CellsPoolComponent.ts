@@ -11,6 +11,7 @@ const {ccclass, property} = _decorator
 export class CellsPoolComponent extends Component implements CellsPoolInterface {
     @property([Prefab])
     cells: Prefab[] = []
+    
     settingsConfiguration: SettingsConfigurationInterface
 
     onLoad() {

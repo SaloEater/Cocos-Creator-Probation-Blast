@@ -1,4 +1,3 @@
-import { injected } from "saloeater-brandi";
 import { CellBurningCountStorageInterface } from "../../BurnCells/CellBurningCountStorageInterface";
 import { container } from "../../container";
 import { EventHandlerInterface } from "../../Event/EventHandlerInterface";

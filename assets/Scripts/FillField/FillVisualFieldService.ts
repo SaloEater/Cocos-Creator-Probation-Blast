@@ -1,20 +1,15 @@
-import { instantiate, Size, UITransform } from "cc";
 import { injected } from "saloeater-brandi";
-import { CellSimple } from "../Cell/CellSimple";
 import { CellsPoolInterface } from "../Cell/CellsPoolInterface";
 import { CellVisualInstanceService } from "../Cell/CellVisualInstanceService";
 import { CellVisual } from "../Cell/Component/CellVisual";
 import { EventClass } from "../Event/event";
 import { Field } from "../Field/Field";
-import { GameSpaceAccessInterface } from "../Field/GameSpaceAccessInterface";
-import { SettingsConfigurationInterface } from "../Settings/SettingsConfigurationInterface";
 import { SquashFieldInterface } from "../SquashField/SquashFieldServiceInterface";
 import { TYPES } from "../types";
 import { FieldFillEndEvent } from "./Event/FieldFillEndEvent";
 import { FillFieldServiceInterface } from "./FillFieldServiceInterface";
 
-export class FillVisualFieldService
- implements FillFieldServiceInterface {
+export class FillVisualFieldService implements FillFieldServiceInterface {
     constructor(
         private squashService: SquashFieldInterface,
         private cellsPool: CellsPoolInterface,

@@ -1,4 +1,3 @@
-import { Vec2 } from "cc";
 import { EventClass } from "../Event/event";
 import { Field } from "../Field/Field";
 import { Random } from "../Random/Random";

@@ -1,8 +1,6 @@
 import { injected } from "saloeater-brandi";
-import { InputStateInterface } from "../CocosCreator/InputStateInterface";
 import { FieldStorageInterface } from "../Field/FieldStorageInterface";
 import { SettingsConfigurationInterface } from "../Settings/SettingsConfigurationInterface";
-import { SquashFieldInterface } from "../SquashField/SquashFieldServiceInterface";
 import { TYPES } from "../types";
 import { CellBurnCommandInterface } from "./CellBurnCommandInterface";
 import { CellBurningServiceInterface } from "./CellBurningServiceInterface";

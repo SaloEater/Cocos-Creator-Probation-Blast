@@ -1,6 +1,5 @@
 import { CellEmpty } from "../Cell/CellEmpty";
 import { CellInterface } from "../Cell/CellInterface";
-import { CellSimple } from "../Cell/CellSimple";
 import { FieldColumn } from "../FieldColumn/FieldColumn";
 
 export class Field {

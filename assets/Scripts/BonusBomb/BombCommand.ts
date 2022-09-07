@@ -1,5 +1,4 @@
 import { injected } from "saloeater-brandi";
-import { CellBurnCommandInterface } from "../BurnCells/CellBurnCommandInterface";
 import { CellBurningServiceInterface } from "../BurnCells/CellBurningServiceInterface";
 import { CellsBurnStartEvent } from "../BurnCells/Event/CellsBurnStartEvent";
 import { InputStateInterface } from "../CocosCreator/InputStateInterface";
