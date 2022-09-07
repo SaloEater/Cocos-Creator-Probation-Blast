@@ -44,6 +44,15 @@ export class Field {
     }
 
     getNotFullColumns(): FieldColumn[] {
-        return [...this.field.values()].filter(i => !i.isFull())
+        let columns: FieldColumn[] = []
+
+        for(let column of this.field.values()) {
+            if (!column.isFull()) {
+                columns.push(column)
+            }
+        }
+
+        return columns
+        //return [...this.field.values()].filter(i => !i.isFull())
     }
 }

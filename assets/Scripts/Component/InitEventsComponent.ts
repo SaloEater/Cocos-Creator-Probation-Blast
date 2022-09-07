@@ -3,6 +3,7 @@ import { CellsBurningEndEventHandler } from "../BurnCells/EventHandler/CellBurni
 import { container } from "../container";
 import { EventClass } from "../Event/event";
 import { EVENT_TYPES } from "../event_types";
+import { DecrementShufflesEventHandler } from "../MixField/Event/DecrementShufflesEventHandler";
 import { MixUnplayableFieldEventHandler } from "../MixField/Event/MixUnplayableFieldEventHandler";
 import { CheckFieldIsPlayableEventHandler } from "../PlayableField/Event/CheckFieldIsPlayableEventHandler";
 import { IncrementPointsEventHandler } from "../Points/Event/IncrementPointsEventHandler";
@@ -12,8 +13,12 @@ const {ccclass} = _decorator
 
 @ccclass
 export class InitEventsComponent extends Component {
+    static init: boolean = false
     start() {
-        this.getEvents().forEach(i => i.listeners.forEach(j => EventClass.registerEvent(i.event, j)))
+        if (!InitEventsComponent.init) {
+            this.getEvents().forEach(i => i.listeners.forEach(j => EventClass.registerEvent(i.event, j)))
+            InitEventsComponent.init = true
+        }
     }
 
     getEvents(): any[] {
@@ -37,6 +42,7 @@ export class InitEventsComponent extends Component {
                 'listeners': [
                     new CellsBurningEndEventHandler(),
                     container.get(TYPES.eventTurnOnInputState),
+                    container.get(TYPES.eventHandlerDecrementTurns),
                 ]
             },    
             {
@@ -49,7 +55,7 @@ export class InitEventsComponent extends Component {
                 'event': EVENT_TYPES.UNPLAYABLE_FIELD_WAS_MIXED,
                 'listeners': [
                     new CheckFieldIsPlayableEventHandler(),
-                    //Подписать убавление очков перемешивания
+                    container.get(TYPES.eventHandlerDecrementShuffles),
                 ]
             },    
             {

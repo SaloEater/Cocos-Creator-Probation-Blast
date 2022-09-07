@@ -1,7 +1,16 @@
 import { PointsStorageInterface } from "./PointsStorageInterface"
 
 export class PointsStorage implements PointsStorageInterface {
+    private a: number
+    constructor() {
+        this.a = 1 // Манипуляция чтобы контейнер смог создать объект без new
+    }
+    
     points: number = 0
+
+    get(): number {
+        return this.points
+    }
 
     increment(): void {
         this.points++

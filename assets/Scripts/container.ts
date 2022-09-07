@@ -13,7 +13,6 @@ import { TestsLogComponent } from './Tests/Component/TestsLogComponent';
 import { CellVisualDestroyCommand } from './Cell/CellVisualDestroyCommand';
 import { CellBurningCountStorage } from './BurnCells/CellBurningCountStorage';
 import { CellBurningStartEventHandler } from './BurnCells/EventHandler/CellBurningStartEventHandler';
-import { CellBurningEndEventHandler } from './BurnCells/EventHandler/CellBurningEndEventHandler';
 import { DecrementCellBurningStartEventHandler } from './BurnCells/EventHandler/DecrementCellBurningStartEventHandler';
 import { CellVisualMoveDownCommand } from './Cell/CellVisualMoveDownCommand';
 import { SquashVisualFieldService } from './SquashField/SquashVisualFieldService';
@@ -24,23 +23,25 @@ import { TurnOnInputEventHandler } from './CocosCreator/Event/TurnOnInputEventHa
 import { MixField } from './MixField/MixField';
 import { PointsStorage } from './Points/PointsStorage';
 import { PlayableFieldService } from './PlayableField/PlayableFieldService';
+import { DecrementShufflesEventHandler } from './MixField/Event/DecrementShufflesEventHandler';
+import { TurnsLeftDecrementEventHandler } from './TurnsLeft/Event/TurnsLeftDecrementEventHandler';
 
 const container = new Container();
 
 container
     .bind(TYPES.testsPipeline)
     .toInstance(TestsPipeline)
-    .inSingletonScope()
+    .inContainerScope()
 
 container
     .bind(TYPES.similarCellsService)
     .toInstance(SimilarCellsService)
-    .inSingletonScope()
+    .inContainerScope()
 
 container
     .bind(TYPES.gameSpaceService)
     .toInstance(GameSpaceService)
-    .inSingletonScope()
+    .inResolutionScope()
 
 container
     .bind(TYPES.cellPositionCalculations)
@@ -55,42 +56,42 @@ container
 container
     .bind(TYPES.fillFieldService)
     .toInstance(FillVisualFieldService)
-    .inSingletonScope()
+    .inResolutionScope()
     
 container
     .bind(TYPES.fieldStorage)
     .toInstance(FieldStorage)
-    .inSingletonScope()
+    .inContainerScope()
     
 container
     .bind(TYPES.cellBurningService)
     .toInstance(VisualCellBurningService)
-    .inSingletonScope()
+    .inContainerScope()
     
 container
     .bind(TYPES.cellBurnCommand)
     .toInstance(CellBurnCommand)
-    .inSingletonScope()
+    .inContainerScope()
 
 container
     .bind(TYPES.cellVisualDestroyCommand)
     .toInstance(CellVisualDestroyCommand)
-    .inSingletonScope()
+    .inContainerScope()
 
 container
     .bind(TYPES.cellBurningCountStorage)
     .toInstance(CellBurningCountStorage)
-    .inSingletonScope()
+    .inContainerScope()
 
 container
     .bind(TYPES.eventHandlerCellBurningStart)
     .toInstance(CellBurningStartEventHandler)
-    .inSingletonScope()
+    .inContainerScope()
 
 container
     .bind(TYPES.eventHandlerDecrementCellBurningStart)
     .toInstance(DecrementCellBurningStartEventHandler)
-    .inSingletonScope()
+    .inContainerScope()
 
 container
     .bind(TYPES.cellVisualMoveDownCommand)
@@ -105,31 +106,50 @@ container
 container
     .bind(TYPES.inputState)
     .toInstance(InputState)
-    .inSingletonScope()
+    .inContainerScope()
 
 container
     .bind(TYPES.eventTurnOffInputState)
     .toInstance(TurnOffInputEventHandler)
-    .inSingletonScope()
+    .inContainerScope()
 
 container
     .bind(TYPES.eventTurnOnInputState)
     .toInstance(TurnOnInputEventHandler)
-    .inSingletonScope()
+    .inContainerScope()
 
 container
     .bind(TYPES.mixField)
     .toInstance(MixField)
-    .inSingletonScope()
+    .inContainerScope()
 
 container
     .bind(TYPES.pointsStorage)
     .toInstance(PointsStorage)
-    .inSingletonScope()
+    .inContainerScope()
+
+container
+    .bind(TYPES.shufflesStorage)
+    .toInstance(PointsStorage)
+    .inContainerScope()
 
 container
     .bind(TYPES.playableField)
     .toInstance(PlayableFieldService)
     .inResolutionScope()
 
+container
+    .bind(TYPES.eventHandlerDecrementShuffles)
+    .toInstance(DecrementShufflesEventHandler)
+    .inContainerScope()
+
+container
+    .bind(TYPES.turnsLeftStorage)
+    .toInstance(PointsStorage)
+    .inContainerScope()
+
+container
+    .bind(TYPES.eventHandlerDecrementTurns)
+    .toInstance(TurnsLeftDecrementEventHandler)
+    .inContainerScope()
 export { container }

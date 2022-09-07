@@ -5,6 +5,11 @@ import { FieldColumn } from "../FieldColumn/FieldColumn";
 import { SquashFieldInterface } from "./SquashFieldServiceInterface";
 
 export class SquashFieldService implements SquashFieldInterface {
+    private a: number
+    constructor() {
+        this.a = 1 // Манипуляция чтобы контейнер смог создать объект без new
+    }
+    
     squash(field: Field) {
         field.field.forEach(i => this.squashColumn(i))
     }

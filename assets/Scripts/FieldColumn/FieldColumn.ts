@@ -41,6 +41,15 @@ export class FieldColumn {
     }
     
     isFull(): boolean {
-        return [...this.cells.values()].filter(i => this.isCellEmpty(i)).length === 0
+        let isFull = true
+
+        for (let cell of this.cells.values()) {
+            if (this.isCellEmpty(cell)) {
+                isFull = false
+            }
+        }
+
+        return isFull
+        //return [...this.cells.values()].filter(i => this.isCellEmpty(i)).length === 0
     }
 }

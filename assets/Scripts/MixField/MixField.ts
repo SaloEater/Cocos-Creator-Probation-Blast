@@ -1,9 +1,16 @@
 import { Vec2 } from "cc";
+import { EventClass } from "../Event/event";
 import { Field } from "../Field/Field";
 import { Random } from "../Random/Random";
+import { UnplayableFieldWasMixedEvent } from "./Event/UnplayableFieldWasMixedEvent";
 import { MixFieldInterface } from "./MixFieldInterface";
 
 export class MixField implements MixFieldInterface {
+    private a: number
+    constructor() {
+        this.a = 1 // Манипуляция чтобы контейнер смог создать объект без new
+    }
+    
     mixField(field: Field) {
         let columns = field.columns
         let rows = field.rows
@@ -26,5 +33,7 @@ export class MixField implements MixFieldInterface {
                 cellVictim.setRow(row)
             }   
         }
+        
+        EventClass.emitEvent(new UnplayableFieldWasMixedEvent(field))
     }
 }

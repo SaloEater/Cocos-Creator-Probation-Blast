@@ -1,6 +1,10 @@
 import { CellBurningCountStorageInterface } from "./CellBurningCountStorageInterface";
 
 export class CellBurningCountStorage implements CellBurningCountStorageInterface {
+    private a: number
+    constructor() {
+        this.a = 1 // Манипуляция чтобы контейнер смог создать объект без new
+    }
     private count: number = 0
 
     set(count: number): void {

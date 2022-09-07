@@ -9,13 +9,14 @@ export class SettingsDataAccessComponent extends Component {
     @property(Node)
     rootNode: Node
 
-    settingsDataComponent: SettingsDataComponent
+    private settingsData: SettingsData
 
     onLoad() {
-        this.settingsDataComponent = this.rootNode.getComponentInChildren(SettingsDataComponent)
+        let component = this.rootNode.getComponentInChildren(SettingsDataComponent)
+        this.settingsData = component.settingsData
     }
 
     getSettingsData(): SettingsData {
-        return this.settingsDataComponent.settingsData
+        return this.settingsData
     }
 }

@@ -1,4 +1,5 @@
 export interface PointsStorageInterface {
+    get(): number
     increment(): void
     decrement(): void
     set(points: number): void

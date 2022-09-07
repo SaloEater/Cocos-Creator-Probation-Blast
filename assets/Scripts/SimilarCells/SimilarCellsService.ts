@@ -3,6 +3,11 @@ import { Field } from "../Field/Field";
 import { SimilarCellsServiceInterface } from "./SimilarCellsServiceInterface";
 
 export class SimilarCellsService implements SimilarCellsServiceInterface {
+    private a: number
+    constructor() {
+        this.a = 1 // Манипуляция чтобы контейнер смог создать объект без new
+    }
+    
     findSimilarCells(
         field: Field,
         column: number,

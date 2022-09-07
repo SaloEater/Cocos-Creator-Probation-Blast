@@ -13,7 +13,6 @@ export class MixUnplayableFieldEventHandler implements EventHandlerInterface {
     handle(field: Field) {
         this.initDI()
         this.mixField.mixField(field)
-        EventClass.emitEvent(new UnplayableFieldWasMixedEvent(field))
     }
 
     initDI() {

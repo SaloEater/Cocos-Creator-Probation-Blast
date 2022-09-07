@@ -1,5 +1,6 @@
 import { EventTarget } from "cc";
 import { injected } from "saloeater-brandi";
+import { CellInterface } from "../../Cell/CellInterface";
 import { EventClass } from "../../Event/event";
 import { EventHandlerInterface } from "../../Event/EventHandlerInterface";
 import { EVENT_TYPES } from "../../event_types";

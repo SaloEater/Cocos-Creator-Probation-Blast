@@ -20,10 +20,13 @@ export class CellsPoolComponent extends Component implements CellsPoolInterface 
     }
 
     start() {
-        this.settingsConfiguration = container.get(TYPES.settingsConfiguration)
+        // if (!this.settingsConfiguration) {
+            this.settingsConfiguration = container.get(TYPES.settingsConfiguration) 
+        // }
     }
 
     getAnyCellPrefab(): Prefab {
+        //this.initDI()
         return this.cells[Random.between(
             0, 
             Math.min(this.cells.length - 1, this.settingsConfiguration.getCellVariantsAmount())

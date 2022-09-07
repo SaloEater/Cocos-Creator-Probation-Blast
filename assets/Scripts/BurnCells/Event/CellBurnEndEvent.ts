@@ -1,3 +1,4 @@
+import { CellInterface } from "../../Cell/CellInterface";
 import { EventInterface } from "../../Event/EventInterface";
 import { EVENT_TYPES } from "../../event_types";
 

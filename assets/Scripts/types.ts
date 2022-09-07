@@ -18,12 +18,14 @@ import { FieldStorageInterface } from "./Field/FieldStorageInterface";
 import { GameSpaceAccessInterface } from "./Field/GameSpaceAccessInterface";
 import { GameSpaceServiceInterface } from "./Field/GameSpaceServiceInterface";
 import { FillFieldServiceInterface } from "./FillField/FillFieldServiceInterface";
+import { DecrementShufflesEventHandler } from "./MixField/Event/DecrementShufflesEventHandler";
 import { MixFieldInterface } from "./MixField/MixFieldInterface";
 import { PlayableFieldInterface } from "./PlayableField/PlayableFieldInterface";
 import { PointsStorageInterface } from "./Points/PointsStorageInterface";
 import { SettingsConfigurationInterface } from "./Settings/SettingsConfigurationInterface";
 import { SimilarCellsServiceInterface } from "./SimilarCells/SimilarCellsServiceInterface";
 import { SquashFieldInterface } from "./SquashField/SquashFieldServiceInterface";
+import { TurnsLeftDecrementEventHandler } from "./TurnsLeft/Event/TurnsLeftDecrementEventHandler";
 
 const TYPES = {
     testsPipeline: token<TestsPipeline>('testsPipeline'),
@@ -49,7 +51,11 @@ const TYPES = {
     eventTurnOnInputState: token<TurnOnInputEventHandler>('eventTurnOnInputState'),
     mixField: token<MixFieldInterface>('mixField'),
     pointsStorage: token<PointsStorageInterface>('pointsStorage'),
+    shufflesStorage: token<PointsStorageInterface>('shufflesStorage'),
     playableField: token<PlayableFieldInterface>('playableField'),
+    eventHandlerDecrementShuffles: token<DecrementShufflesEventHandler>('eventHandlerDecrementShuffles'),
+    turnsLeftStorage: token<PointsStorageInterface>('turnsLeftStorage'),
+    eventHandlerDecrementTurns: token<TurnsLeftDecrementEventHandler>('eventHandlerDecrementTurns'),
 };
 
 export { TYPES };

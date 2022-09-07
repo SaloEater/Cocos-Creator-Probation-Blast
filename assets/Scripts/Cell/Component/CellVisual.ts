@@ -42,7 +42,6 @@ export class CellVisual extends Component implements CellInterface {
     
     onLoad() {
         this.uiTransform = this.node.getComponent(UITransform)
-        this.cellBurnCommand = container.get(TYPES.cellBurnCommand)
         this.moveCellCommand = container.get(TYPES.moveCellVisualToPositionCommand)
         this.cellState = this.node.getComponent(CellState)
         this.animation = this.node.getComponent(Animation)
@@ -52,6 +51,9 @@ export class CellVisual extends Component implements CellInterface {
     }
 
     burnCell(): void {
+        if (!this.cellBurnCommand) {
+            this.cellBurnCommand = container.get(TYPES.cellBurnCommand)
+        }
         this.cellBurnCommand.execute(this.cellColumn, this.cellRow)
     }
 
@@ -72,7 +74,9 @@ export class CellVisual extends Component implements CellInterface {
     }
     
     destroyCell() {
-        this.node.destroy()
+        if (this.node) {
+            this.node.destroy()
+        }
     }
 
     playMoveAnimation() {

@@ -8,12 +8,15 @@ export class SettingsSceneComponent extends Component {
     @property(SceneAsset)
     gameScene: SceneAsset
 
-    @property(Node)
     settingsData: Node
+
+    onLoad() {
+        this.settingsData = this.node.parent.getComponentInChildren(SettingsDataComponent).node
+    }
 
     changeScene() {
         director.addPersistRootNode(this.settingsData)
-        director.loadScene(this.gameScene.name);
+        //director.loadScene(this.gameScene.name);
         director.runScene(this.gameScene)
     }
 }
