@@ -3,20 +3,21 @@ import { Field } from "../Field/Field";
 import { SimilarCellsService } from "../SimilarCells/SimilarCellsService";
 
 export class SameColumnCellsService extends SimilarCellsService {
-    column: number
+    row: number
 
     findCellsOnSameRow(field: Field, column: number, row: number): CellInterface[] {
-        this.column = column
-
-        return this.findSimilarCells(
+        this.row = row
+        let sameCells = this.findSimilarCells(
             field,
             column,
             row,
             field.getCellAt(column, row)
         )
+        
+        return sameCells
     }
 
     protected isValid(cell: CellInterface, field: Field, column: number, row: number): boolean {
-        return column === this.column
+        return row === this.row
     }
 }
