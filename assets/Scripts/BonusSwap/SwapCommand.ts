@@ -25,6 +25,10 @@ export class SwapCommand implements SwapCommandInterface {
         
         let targetCell = field.getCellAt(column, row) as CellVisual
         targetCell.setCell(originColumn, originRow)
+
+        field.setCell(originColumn, originRow, targetCell)
+        field.setCell(column, row, originCell)
+
         this.swapStorage.reset()
     }
 }
