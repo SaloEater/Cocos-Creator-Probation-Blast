@@ -2,6 +2,7 @@ import { instantiate, Size, UITransform } from "cc";
 import { injected } from "saloeater-brandi";
 import { CellSimple } from "../Cell/CellSimple";
 import { CellsPoolInterface } from "../Cell/CellsPoolInterface";
+import { CellVisualInstanceService } from "../Cell/CellVisualInstanceService";
 import { CellVisual } from "../Cell/Component/CellVisual";
 import { EventClass } from "../Event/event";
 import { Field } from "../Field/Field";
@@ -17,8 +18,7 @@ export class FillVisualFieldService
     constructor(
         private squashService: SquashFieldInterface,
         private cellsPool: CellsPoolInterface,
-        private gameSpace: GameSpaceAccessInterface,
-        private settingsConfiguration: SettingsConfigurationInterface,
+        private cellVisualInstanceService: CellVisualInstanceService
     ) {
     }
 
@@ -26,15 +26,8 @@ export class FillVisualFieldService
         field.getNotFullColumns().forEach(i => {
             do {
                 let cellPrefab = this.cellsPool.getAnyCellPrefab()
-                let cellNode = instantiate(cellPrefab)
-                this.gameSpace.getGameSpace().addChild(cellNode)
-
-                let cellVisual = cellNode.getComponent(CellVisual)                
-                let uiTransform = cellNode.getComponent(UITransform)
-                uiTransform.setContentSize(new Size(
-                    this.settingsConfiguration.getCellWidth(),
-                    this.settingsConfiguration.getCellHeight(),
-                ))
+                let cellNode = this.cellVisualInstanceService.instantiate(cellPrefab)
+                let cellVisual = cellNode.getComponent(CellVisual)
 
                 cellVisual.setColumn(i.columnIndex)
                 cellVisual.setRow(0)
@@ -51,6 +44,5 @@ injected(
     FillVisualFieldService,
     TYPES.squashService.optional,
     TYPES.cellsPool.optional,
-    TYPES.gameSpaceAccess.optional,
-    TYPES.settingsConfiguration.optional,
+    TYPES.cellVisualInstanceService.optional,
 )

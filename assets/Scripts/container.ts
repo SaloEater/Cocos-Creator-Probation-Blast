@@ -29,11 +29,20 @@ import { GameStateService } from './GameEnd/GameStateService';
 import { CheckGameEndEventHandler } from './GameEnd/Event/CheckGameEndEventHandler';
 import { CellActionCommand } from './Cell/CellActionCommand';
 import { CellActionState } from './Cell/CellActionState';
-import { BombCommand } from './BonusBom/BombCommand';
-import { CellsInRadiusService } from './BonusBom/CellsInRadiusService';
+import { BombCommand } from './BonusBomb/BombCommand';
+import { CellsInRadiusService } from './BonusBomb/CellsInRadiusService';
 import { SwapStorage } from './BonusSwap/SwapStorage';
 import { ResetSwapStorageEventHandler } from './BonusSwap/Event/ResetSwapStorageEventHandler';
 import { SwapCommand } from './BonusSwap/SwapCommand';
+import { SameRowCellsService } from './CellSuper/SameRowCellsService';
+import { BurnRowCommand } from './CellSuper/BurnRowCommand';
+import { SameColumnCellsService } from './CellSuper/SameColumnCellsService';
+import { BurnColumnCommand } from './CellSuper/BurnColumnCommand';
+import { BurnFieldCommand } from './CellSuper/BurnFieldCommand';
+import { CellSuperSpawnService } from './CellSuper/CellSuperSpawnService';
+import { CellSuperLocationStorage } from './CellSuper/CellSuperLocationStorage';
+import { CellVisualInstanceService } from './Cell/CellVisualInstanceService';
+import { CellSuperLocationInitialzeEventHandler } from './CellSuper/Event/CellSuperLocationInitialzeEventHandler';
 
 const container = new Container();
 
@@ -118,12 +127,12 @@ container
     .inContainerScope()
 
 container
-    .bind(TYPES.eventTurnOffInputState)
+    .bind(TYPES.eventHandlerTurnOffInputState)
     .toInstance(TurnOffInputEventHandler)
     .inContainerScope()
 
 container
-    .bind(TYPES.eventTurnOnInputState)
+    .bind(TYPES.eventHandlerTurnOnInputState)
     .toInstance(TurnOnInputEventHandler)
     .inContainerScope()
 
@@ -202,5 +211,49 @@ container
     .toInstance(SwapCommand)
     .inContainerScope()
 
+container
+    .bind(TYPES.sameRowCellsService)
+    .toInstance(SameRowCellsService)
+    .inContainerScope()
+
+container
+    .bind(TYPES.burnRowCommand)
+    .toInstance(BurnRowCommand)
+    .inContainerScope()
+
+container
+    .bind(TYPES.sameColumnCellsService)
+    .toInstance(SameColumnCellsService)
+    .inContainerScope()
+
+container
+    .bind(TYPES.burnColumnCommand)
+    .toInstance(BurnColumnCommand)
+    .inContainerScope()
+
+container
+    .bind(TYPES.burnFieldCommand)
+    .toInstance(BurnFieldCommand)
+    .inContainerScope()
+
+container
+    .bind(TYPES.cellSuperSpawnService)
+    .toInstance(CellSuperSpawnService)
+    .inContainerScope()
+
+container
+    .bind(TYPES.cellSuperLocationStorage)
+    .toInstance(CellSuperLocationStorage)
+    .inContainerScope()
+
+container
+    .bind(TYPES.eventHandlerCellSuperLocationInitialze)
+    .toInstance(CellSuperLocationInitialzeEventHandler)
+    .inContainerScope()
+
+container
+    .bind(TYPES.cellVisualInstanceService)
+    .toInstance(CellVisualInstanceService)
+    .inContainerScope()
 
 export { container }

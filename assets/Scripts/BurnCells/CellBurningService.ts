@@ -25,7 +25,7 @@ export class CellBurningService implements CellBurningServiceInterface {
         similarCells.push(cell)
         
         if (similarCells.length >= mininumAmount) {
-            this.emitEvent(similarCells.length);
+            this.emitEvent(similarCells.length, field, column, row);
             similarCells.forEach(i => this.burnCell(field, i, cell)
             )
         }
@@ -39,8 +39,8 @@ export class CellBurningService implements CellBurningServiceInterface {
         );
     }
 
-    protected emitEvent(length: number) {
-        EventClass.emitEvent(new CellsBurnStartEvent(length));
+    protected emitEvent(length: number, field: Field, column: number, row: number) {
+        EventClass.emitEvent(new CellsBurnStartEvent(length, field, column, row));
     }
 }
 

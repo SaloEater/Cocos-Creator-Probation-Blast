@@ -33,13 +33,16 @@
         "__id__": 142
       },
       {
-        "__id__": 32
-      },
-      {
         "__id__": 144
       },
       {
+        "__id__": 32
+      },
+      {
         "__id__": 146
+      },
+      {
+        "__id__": 148
       },
       {
         "__id__": 14
@@ -53,10 +56,12 @@
     ],
     "_active": true,
     "_components": [],
-    "_prefab": null,
+    "_prefab": {
+      "__id__": 150
+    },
     "autoReleaseAssets": false,
     "_globals": {
-      "__id__": 148
+      "__id__": 151
     },
     "_id": "750fe511-3687-42a9-a207-5c3393a275d7"
   },
@@ -4895,7 +4900,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "GameSceneDirectorComponent",
+    "_name": "CellSuperPoolComponent",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -4934,10 +4939,10 @@
       "y": 0,
       "z": 0
     },
-    "_id": "a3Wic+jGdGEIGSOHdS6jYF"
+    "_id": "aeCJd0HVVF4bWql1NUF5VZ"
   },
   {
-    "__type__": "60eb7G4lG5BJp2soLn4b6TT",
+    "__type__": "644470m83pL27g1i4MtNAPG",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -4945,19 +4950,29 @@
     },
     "_enabled": true,
     "__prefab": null,
-    "winScene": {
-      "__uuid__": "5870cce9-f53a-46a3-a8c7-b1b060b4e84b",
-      "__expectedType__": "cc.SceneAsset"
-    },
-    "loseScene": {
-      "__uuid__": "5bc389a4-a6bf-4f21-b64b-0c4cbedafd17",
-      "__expectedType__": "cc.SceneAsset"
-    },
-    "_id": "3bsHgavJVEvawwR+r5IPys"
+    "cells": [
+      {
+        "__uuid__": "848d745a-6f2a-4e70-a414-0eed2eeb3a32",
+        "__expectedType__": "cc.Prefab"
+      },
+      {
+        "__uuid__": "d73787bd-3acc-4ad5-b525-01e8f92c3abd",
+        "__expectedType__": "cc.Prefab"
+      },
+      {
+        "__uuid__": "3428caec-af67-469a-ad27-973623ae9c00",
+        "__expectedType__": "cc.Prefab"
+      },
+      {
+        "__uuid__": "c55c9215-aec5-4773-a6bd-2b6393951312",
+        "__expectedType__": "cc.Prefab"
+      }
+    ],
+    "_id": "55ZGIjVuBK8ZnHKxUjRiRP"
   },
   {
     "__type__": "cc.Node",
-    "_name": "InitEventsComponent",
+    "_name": "GameSceneDirectorComponent",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -4996,10 +5011,10 @@
       "y": 0,
       "z": 0
     },
-    "_id": "4921veoiZGK4LIj4Mb9lyc"
+    "_id": "a3Wic+jGdGEIGSOHdS6jYF"
   },
   {
-    "__type__": "5350fOlX21OcZhKw46a7xAj",
+    "__type__": "60eb7G4lG5BJp2soLn4b6TT",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -5007,24 +5022,90 @@
     },
     "_enabled": true,
     "__prefab": null,
+    "winScene": {
+      "__uuid__": "5870cce9-f53a-46a3-a8c7-b1b060b4e84b",
+      "__expectedType__": "cc.SceneAsset"
+    },
+    "loseScene": {
+      "__uuid__": "5bc389a4-a6bf-4f21-b64b-0c4cbedafd17",
+      "__expectedType__": "cc.SceneAsset"
+    },
+    "_id": "3bsHgavJVEvawwR+r5IPys"
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "InitEventsComponent",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 1
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 149
+      }
+    ],
+    "_prefab": null,
+    "_lpos": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_lrot": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_lscale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_layer": 1073741824,
+    "_euler": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_id": "4921veoiZGK4LIj4Mb9lyc"
+  },
+  {
+    "__type__": "5350fOlX21OcZhKw46a7xAj",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 148
+    },
+    "_enabled": true,
+    "__prefab": null,
     "_id": "36PUU+LY5Obqmxx5FTADA2"
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "fileId": "750fe511-3687-42a9-a207-5c3393a275d7"
   },
   {
     "__type__": "cc.SceneGlobals",
     "ambient": {
-      "__id__": 149
-    },
-    "shadows": {
-      "__id__": 150
-    },
-    "_skybox": {
-      "__id__": 151
-    },
-    "fog": {
       "__id__": 152
     },
-    "octree": {
+    "shadows": {
       "__id__": 153
+    },
+    "_skybox": {
+      "__id__": 154
+    },
+    "fog": {
+      "__id__": 155
+    },
+    "octree": {
+      "__id__": 156
     }
   },
   {

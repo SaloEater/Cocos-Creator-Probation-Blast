@@ -4,7 +4,6 @@ import { TYPES } from "../../types";
 import { CellBurningCountStorageInterface } from "../CellBurningCountStorageInterface";
 
 export class CellBurningStartEventHandler implements EventHandlerInterface {
-
     constructor(
         private countStorage: CellBurningCountStorageInterface
     ) {

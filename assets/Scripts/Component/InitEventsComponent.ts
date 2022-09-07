@@ -1,5 +1,6 @@
 import { _decorator, Component, EventHandler, EventTarget } from "cc";
 import { RestoreFieldEventHandler } from "../BurnCells/EventHandler/CellsBurningEndEventHandler";
+import { CellSuperSpawnEventHandler } from "../CellSuper/Event/CellSuperSpawnEventHandler";
 import { container } from "../container";
 import { EventClass } from "../Event/event";
 import { EVENT_TYPES } from "../event_types";
@@ -28,7 +29,8 @@ export class InitEventsComponent extends Component {
                 'event': EVENT_TYPES.CELLS_BURN_START,
                 'listeners': [
                     container.get(TYPES.eventHandlerCellBurningStart),
-                    container.get(TYPES.eventTurnOffInputState),
+                    container.get(TYPES.eventHandlerTurnOffInputState),
+                    container.get(TYPES.eventHandlerCellSuperLocationInitialze),
                 ]
             },    
             {
@@ -42,7 +44,7 @@ export class InitEventsComponent extends Component {
                 'event': EVENT_TYPES.CELLS_BURN_END,
                 'listeners': [
                     new RestoreFieldEventHandler(),
-                    container.get(TYPES.eventTurnOnInputState),
+                    container.get(TYPES.eventHandlerTurnOnInputState),
                     container.get(TYPES.eventHandlerDecrementTurns),
                     new CheckGameEndEventHandler(),
                 ]
@@ -71,6 +73,12 @@ export class InitEventsComponent extends Component {
                 'event': EVENT_TYPES.BONUS_CHANGED,
                 'listeners': [
                     container.get(TYPES.eventHandlerResetSwapStorage)
+                ]
+            },    
+            {
+                'event': EVENT_TYPES.FIELD_RESTORED,
+                'listeners': [
+                    new CellSuperSpawnEventHandler(),
                 ]
             },    
         ]

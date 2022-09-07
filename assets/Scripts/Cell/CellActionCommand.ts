@@ -1,7 +1,8 @@
 import { injected } from "saloeater-brandi";
-import { BombCommandInterface } from "../BonusBom/BombCommandInterface";
+import { BombCommandInterface } from "../BonusBomb/BombCommandInterface";
 import { SwapCommandInterface } from "../BonusSwap/SwapCommandInterface";
 import { CellBurnCommandInterface } from "../BurnCells/CellBurnCommandInterface";
+import { InputStateInterface } from "../CocosCreator/InputStateInterface";
 import { FieldStorageInterface } from "../Field/FieldStorageInterface";
 import { SettingsConfigurationInterface } from "../Settings/SettingsConfigurationInterface";
 import { TYPES } from "../types";
@@ -18,10 +19,15 @@ export class CellActionCommand implements CellActionCommandInterface {
         private fieldStorage: FieldStorageInterface,
         private settingsConfiguration: SettingsConfigurationInterface,
         private swapCommand: SwapCommandInterface,
+        private inputState: InputStateInterface,
     ) {
     }
 
     execute(column: number, row: number): void {
+        if (!this.inputState.isOn()) {
+            return;
+        }
+
         if (this.cellActionState.isBomb()) {
             this.bombCommand.execute(
                 this.fieldStorage.get(),
@@ -53,4 +59,5 @@ injected(
     TYPES.fieldStorage.optional,
     TYPES.settingsConfiguration.optional,
     TYPES.swapCommand.optional,
+    TYPES.inputState.optional,
 )

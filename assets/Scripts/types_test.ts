@@ -1,8 +1,8 @@
 import { token } from "saloeater-brandi";
 import { SettingsConfigurationMockService } from "../Tests/Mock/SettingsConfigurationMockService";
-import { BombCommand } from "./BonusBom/BombCommand";
-import { CellsInRadiusService } from "./BonusBom/CellsInRadiusService";
-import { CellsInRadiusInterface } from "./BonusBom/CellsInRadiusServiceInterface";
+import { BombCommand } from "./BonusBomb/BombCommand";
+import { CellsInRadiusService } from "./BonusBomb/CellsInRadiusService";
+import { CellsInRadiusInterface } from "./BonusBomb/CellsInRadiusServiceInterface";
 import { CellBurnCommand } from "./BurnCells/CellBurnCommand";
 import { CellBurningService } from "./BurnCells/CellBurningService";
 import { CellPositionCalculationsService } from "./Cell/CellPositionCalculationsService";

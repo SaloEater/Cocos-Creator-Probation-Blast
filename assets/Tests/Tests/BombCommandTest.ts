@@ -1,5 +1,5 @@
-import { BombCommand } from "../../Scripts/BonusBom/BombCommand";
-import { CellsInRadiusService } from "../../Scripts/BonusBom/CellsInRadiusService";
+import { BombCommand } from "../../Scripts/BonusBomb/BombCommand";
+import { CellsInRadiusService } from "../../Scripts/BonusBomb/CellsInRadiusService";
 import { CellBurnCommand } from "../../Scripts/BurnCells/CellBurnCommand";
 import { CellEmpty } from "../../Scripts/Cell/CellEmpty";
 import { CellSimple } from "../../Scripts/Cell/CellSimple";

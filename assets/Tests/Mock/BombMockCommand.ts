@@ -1,7 +1,7 @@
 import { injected } from "saloeater-brandi";
-import { BombCommand } from "../../Scripts/BonusBom/BombCommand";
-import { BombCommandInterface } from "../../Scripts/BonusBom/BombCommandInterface";
-import { CellsInRadiusInterface } from "../../Scripts/BonusBom/CellsInRadiusServiceInterface";
+import { BombCommand } from "../../Scripts/BonusBomb/BombCommand";
+import { BombCommandInterface } from "../../Scripts/BonusBomb/BombCommandInterface";
+import { CellsInRadiusInterface } from "../../Scripts/BonusBomb/CellsInRadiusServiceInterface";
 import { CellBurningServiceInterface } from "../../Scripts/BurnCells/CellBurningServiceInterface";
 import { Field } from "../../Scripts/Field/Field";
 import { TEST_TYPES } from "../../Scripts/types_test";

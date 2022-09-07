@@ -1,4 +1,4 @@
-import { _decorator, Component, Button, EventHandler, ButtonComponent, Input, Sprite, ImageAsset, SpriteFrame } from "cc";
+import { _decorator, Component, Button, EventHandler, Input, Sprite, ImageAsset, SpriteFrame } from "cc";
 import { BonusComponent } from "../../Bonus/Component/BonusComponent";
 import { CellActionState } from "../../Cell/CellActionState";
 import { container } from "../../container";

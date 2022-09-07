@@ -1,7 +1,7 @@
 import { token } from "saloeater-brandi";
 import { TestsPipeline } from "../Tests/TestsPipeline";
-import { BombCommandInterface } from "./BonusBom/BombCommandInterface";
-import { CellsInRadiusInterface } from "./BonusBom/CellsInRadiusServiceInterface";
+import { BombCommandInterface } from "./BonusBomb/BombCommandInterface";
+import { CellsInRadiusInterface } from "./BonusBomb/CellsInRadiusServiceInterface";
 import { CellBurnCommandInterface } from "./BurnCells/CellBurnCommandInterface";
 import { CellBurningCountStorageInterface } from "./BurnCells/CellBurningCountStorageInterface";
 import { CellBurningServiceInterface } from "./BurnCells/CellBurningServiceInterface";
@@ -36,6 +36,16 @@ import { TurnsLeftDecrementEventHandler } from "./TurnsLeft/Event/TurnsLeftDecre
 import { SwapStorage } from "./BonusSwap/SwapStorage";
 import { ResetSwapStorageEventHandler } from "./BonusSwap/Event/ResetSwapStorageEventHandler";
 import { SwapCommandInterface } from "./BonusSwap/SwapCommandInterface";
+import { CellSuperPoolInterface } from "./CellSuper/CellSuperPoolInterface";
+import { SameRowCellsService } from "./CellSuper/SameRowCellsService";
+import { BurnRowCommand } from "./CellSuper/BurnRowCommand";
+import { BurnColumnCommand } from "./CellSuper/BurnColumnCommand";
+import { SameColumnCellsService } from "./CellSuper/SameColumnCellsService";
+import { BurnFieldCommand } from "./CellSuper/BurnFieldCommand";
+import { CellSuperSpawnService } from "./CellSuper/CellSuperSpawnService";
+import { CellSuperLocationStorage } from "./CellSuper/CellSuperLocationStorage";
+import { CellSuperLocationInitialzeEventHandler } from "./CellSuper/Event/CellSuperLocationInitialzeEventHandler";
+import { CellVisualInstanceService } from "./Cell/CellVisualInstanceService";
 
 const TYPES = {
     testsPipeline: token<TestsPipeline>('testsPipeline'),
@@ -57,8 +67,8 @@ const TYPES = {
     cellVisualMoveDownCommand: token<CellVisualMoveDownCommandInterface>('cellVisualMoveDownCommand'),
     moveCellVisualToPositionCommand: token<MoveCellVisualToPositionCommandInterface>('moveCellVisualToPositionCommand'),
     inputState: token<InputStateInterface>('inputState'),
-    eventTurnOffInputState: token<TurnOffInputEventHandler>('eventTurnOffInputState'),
-    eventTurnOnInputState: token<TurnOnInputEventHandler>('eventTurnOnInputState'),
+    eventHandlerTurnOffInputState: token<TurnOffInputEventHandler>('eventHandlerTurnOffInputState'),
+    eventHandlerTurnOnInputState: token<TurnOnInputEventHandler>('eventHandlerTurnOnInputState'),
     mixField: token<MixFieldInterface>('mixField'),
     pointsStorage: token<PointsStorageInterface>('pointsStorage'),
     shufflesStorage: token<PointsStorageInterface>('shufflesStorage'),
@@ -75,6 +85,16 @@ const TYPES = {
     swapStorage: token<SwapStorage>('swapStorage'),
     eventHandlerResetSwapStorage: token<ResetSwapStorageEventHandler>('eventHandlerResetSwapStorage'),
     swapCommand: token<SwapCommandInterface>('swapCommand'),
+    cellSuperPool: token<CellSuperPoolInterface>('cellSuperPool'),
+    sameRowCellsService: token<SameRowCellsService>('sameRowCellsService'),
+    burnRowCommand: token<BurnRowCommand>('burnRowCommand'),
+    sameColumnCellsService: token<SameColumnCellsService>('sameColumnCellsService'),
+    burnColumnCommand: token<BurnColumnCommand>('burnColumnCommand'),
+    burnFieldCommand: token<BurnFieldCommand>('burnFieldCommand'),
+    cellSuperSpawnService: token<CellSuperSpawnService>('cellSuperSpawnService'),
+    cellSuperLocationStorage: token<CellSuperLocationStorage>('cellSuperLocationStorage'),
+    eventHandlerCellSuperLocationInitialze: token<CellSuperLocationInitialzeEventHandler>('eventHandlerCellSuperLocationInitialze'),
+    cellVisualInstanceService: token<CellVisualInstanceService>('cellVisualInstanceService'),
 };
 
 export { TYPES };

@@ -4,4 +4,5 @@ export interface CellBurningCountStorageInterface {
     increment(): void
     decrement(): void
     reset(): void
+    getInitialCount(): number
 }
