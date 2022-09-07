@@ -7,4 +7,5 @@ export class SettingsData {
     pointsToWin: number
     turnsAmount: number
     superCellAppearenceAmount: number
+    bombRadius: number
 }

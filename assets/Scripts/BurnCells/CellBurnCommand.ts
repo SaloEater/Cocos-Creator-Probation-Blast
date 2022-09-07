@@ -22,7 +22,7 @@ export class CellBurnCommand implements CellBurnCommandInterface {
         }
 
         let field = this.fieldStorage.get()
-        this.cellBurningService.burnCellAt(
+        this.cellBurningService.burnCellsAt(
             field,
             column,
             row,

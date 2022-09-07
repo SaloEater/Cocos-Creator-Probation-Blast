@@ -1,11 +1,15 @@
 import { token } from "saloeater-brandi";
 import { TestsPipeline } from "../Tests/TestsPipeline";
+import { BombCommandInterface } from "./Bomb/BombCommandInterface";
+import { CellsInRadiusInterface } from "./Bomb/CellsInRadiusServiceInterface";
 import { CellBurnCommandInterface } from "./BurnCells/CellBurnCommandInterface";
 import { CellBurningCountStorageInterface } from "./BurnCells/CellBurningCountStorageInterface";
 import { CellBurningServiceInterface } from "./BurnCells/CellBurningServiceInterface";
-import { CellBurningEndEventHandler } from "./BurnCells/EventHandler/CellBurningEndEventHandler";
+import { CellBurningEndEventHandler } from "./BurnCells/EventHandler/CellsBurningEndEventHandler";
 import { CellBurningStartEventHandler } from "./BurnCells/EventHandler/CellBurningStartEventHandler";
 import { DecrementCellBurningStartEventHandler } from "./BurnCells/EventHandler/DecrementCellBurningStartEventHandler";
+import { CellActionCommandInterface } from "./Cell/CellActionCommandInterface";
+import { CellActionState } from "./Cell/CellActionState";
 import { CellPositionCalculationsInterface } from "./Cell/CellPositionCalculationsInterface";
 import { CellsPoolInterface } from "./Cell/CellsPoolInterface";
 import { CellVisualDestroyCommandInterface } from "./Cell/CellVisualDestroyCommandInterface";
@@ -61,6 +65,10 @@ const TYPES = {
     eventHandlerDecrementTurns: token<TurnsLeftDecrementEventHandler>('eventHandlerDecrementTurns'),
     gameState: token<GameStateInterface>('gameState'),
     gameSceneDirector: token<GameSceneDirectorInterface>('gameSceneDirector'),
+    cellActionCommand: token<CellActionCommandInterface>('cellActionCommand'),
+    cellActionState: token<CellActionState>('cellActionState'),
+    bombCommand: token<BombCommandInterface>('bombCommand'),
+    cellsInRadius: token<CellsInRadiusInterface>('cellsInRadius'),
 };
 
 export { TYPES };

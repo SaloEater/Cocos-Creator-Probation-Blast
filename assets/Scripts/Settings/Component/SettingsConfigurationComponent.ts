@@ -68,4 +68,8 @@ export class SettingsConfigurationComponent extends Component implements Setting
         const fieldHeight = this.gameSpaceService.getHeight(this.gameSpaceAccess.getGameSpace());
         return fieldHeight / this.getRows()
     }
+
+    getBombRadius(): number {
+        return this.settingsDataAccess.getSettingsData().bombRadius
+    }
 }

@@ -15,10 +15,10 @@ export class VisualCellBurningService extends CellBurningService {
         super(similarCellsService)
     }
     
-    protected replaceCell(field: Field, i: CellInterface, originCell: CellInterface): void {
-        this.cellVisualDestoryCommand.execute((i as CellVisual), originCell)
+    burnCell(field: Field, destroyedCell: CellInterface, originCell: CellInterface): void {
+        this.cellVisualDestoryCommand.execute((destroyedCell as CellVisual), originCell)
 
-        return super.replaceCell(field, i, originCell)
+        return super.burnCell(field, destroyedCell, originCell)
     }
 }
 

@@ -9,4 +9,5 @@ export interface SettingsConfigurationInterface {
     getSuperCellAppearenceAmount(): number
     getCellWidth(): number
     getCellHeight(): number
+    getBombRadius(): number
 }

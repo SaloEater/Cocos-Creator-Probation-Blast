@@ -1,5 +1,8 @@
 import { token } from "saloeater-brandi";
 import { SettingsConfigurationMockService } from "../Tests/Mock/SettingsConfigurationMockService";
+import { BombCommand } from "./Bomb/BombCommand";
+import { CellsInRadiusService } from "./Bomb/CellsInRadiusService";
+import { CellsInRadiusInterface } from "./Bomb/CellsInRadiusServiceInterface";
 import { CellBurnCommand } from "./BurnCells/CellBurnCommand";
 import { CellBurningService } from "./BurnCells/CellBurningService";
 import { CellPositionCalculationsService } from "./Cell/CellPositionCalculationsService";
@@ -21,6 +24,8 @@ const TEST_TYPES = {
     testsFieldStorage: token<FieldStorage>('testsFieldStorage'),
     testsPlayableField: token<PlayableFieldService>('testsPlayableField'),
     testsInputState: token<InputState>('testsInputState'),
+    testsBombCommand: token<BombCommand>('testBombCommand'),
+    testsCellsInRadius: token<CellsInRadiusInterface>('cellsInRadius'),
 };
 
 export { TEST_TYPES };

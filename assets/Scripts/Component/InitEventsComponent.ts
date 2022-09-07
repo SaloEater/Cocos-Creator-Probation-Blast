@@ -1,5 +1,5 @@
 import { _decorator, Component, EventHandler, EventTarget } from "cc";
-import { CellsBurningEndEventHandler } from "../BurnCells/EventHandler/CellBurningEndEventHandler";
+import { RestoreFieldEventHandler } from "../BurnCells/EventHandler/CellsBurningEndEventHandler";
 import { container } from "../container";
 import { EventClass } from "../Event/event";
 import { EVENT_TYPES } from "../event_types";
@@ -41,7 +41,7 @@ export class InitEventsComponent extends Component {
             {
                 'event': EVENT_TYPES.CELLS_BURN_END,
                 'listeners': [
-                    new CellsBurningEndEventHandler(),
+                    new RestoreFieldEventHandler(),
                     container.get(TYPES.eventTurnOnInputState),
                     container.get(TYPES.eventHandlerDecrementTurns),
                     new CheckGameEndEventHandler(),

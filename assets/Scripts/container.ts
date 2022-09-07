@@ -27,6 +27,10 @@ import { DecrementShufflesEventHandler } from './MixField/Event/DecrementShuffle
 import { TurnsLeftDecrementEventHandler } from './TurnsLeft/Event/TurnsLeftDecrementEventHandler';
 import { GameStateService } from './GameEnd/GameStateService';
 import { CheckGameEndEventHandler } from './GameEnd/Event/CheckGameEndEventHandler';
+import { CellActionCommand } from './Cell/CellActionCommand';
+import { CellActionState } from './Cell/CellActionState';
+import { BombCommand } from './Bomb/BombCommand';
+import { CellsInRadiusService } from './Bomb/CellsInRadiusService';
 
 const container = new Container();
 
@@ -159,5 +163,26 @@ container
     .bind(TYPES.gameState)
     .toInstance(GameStateService)
     .inContainerScope()
+
+container
+    .bind(TYPES.cellActionCommand)
+    .toInstance(CellActionCommand)
+    .inContainerScope()
+
+container
+    .bind(TYPES.cellActionState)
+    .toInstance(CellActionState)
+    .inContainerScope()
+
+container
+    .bind(TYPES.bombCommand)
+    .toInstance(BombCommand)
+    .inContainerScope()
+
+container
+    .bind(TYPES.cellsInRadius)
+    .toInstance(CellsInRadiusService)
+    .inContainerScope()
+
 
 export { container }

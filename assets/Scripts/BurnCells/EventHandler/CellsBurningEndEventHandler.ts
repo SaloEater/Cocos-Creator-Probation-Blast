@@ -6,8 +6,8 @@ import { FillFieldServiceInterface } from "../../FillField/FillFieldServiceInter
 import { SquashFieldInterface } from "../../SquashField/SquashFieldServiceInterface";
 import { TYPES } from "../../types";
 import { CellBurningCountStorageInterface } from "../CellBurningCountStorageInterface";
-
-export class CellsBurningEndEventHandler implements EventHandlerInterface {
+``
+export class RestoreFieldEventHandler implements EventHandlerInterface {
     private squashService: SquashFieldInterface
     private fieldStorage: FieldStorageInterface
     private fillFieldService: FillFieldServiceInterface

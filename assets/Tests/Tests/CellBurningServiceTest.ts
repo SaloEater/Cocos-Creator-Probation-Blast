@@ -37,7 +37,7 @@ export default class CellBurningServiceTest {
         ]
         fillFieldByMap(simpleCellMap, field);
 
-        this.service.burnCellAt(field, 1, 1, 1)
+        this.service.burnCellsAt(field, 1, 1, 1)
 
         this.assertFieldIsEmpty(field)
     }
@@ -59,7 +59,7 @@ export default class CellBurningServiceTest {
         fillFieldByMap(simpleCellMap, field);
         field.setCell(1, 0, new CellTest(1, 0))
 
-        this.service.burnCellAt(field, 1, 1, 1)
+        this.service.burnCellsAt(field, 1, 1, 1)
 
         Assert.assertInstanceOf(CellTest, field.getCellAt(1, 0))
     }
@@ -78,7 +78,7 @@ export default class CellBurningServiceTest {
         ]
         fillFieldByMap(simpleCellMap, field);
 
-        this.service.burnCellAt(field, 0, 1, 1)
+        this.service.burnCellsAt(field, 0, 1, 1)
 
         this.assertFieldIsEmpty(field)
     }
@@ -113,7 +113,7 @@ export default class CellBurningServiceTest {
         ]
         fillFieldByMap(simpleCellMap, field);
 
-        this.service.burnCellAt(field, 2, 2, 1)        
+        this.service.burnCellsAt(field, 2, 2, 1)        
 
         this.assertFieldIsEmpty(field)
     }
@@ -134,7 +134,7 @@ export default class CellBurningServiceTest {
         ]
         fillFieldByMap(simpleCellMap, field);
 
-        this.service.burnCellAt(field, 1, 1, 6)
+        this.service.burnCellsAt(field, 1, 1, 6)
 
         simpleCellMap.forEach(i => 
             Assert.assertInstanceOf(CellSimple, field.getCellAt(i[0], i[1]))

@@ -1,3 +1,4 @@
+import { BombCommandTest } from "./BombCommandTest"
 import { CellBurnCommandTest } from "./CellBurnCommandTest"
 import CellBurningServiceTest from "./CellBurningServiceTest"
 import { CellPositionCalculationsServiceTest } from "./CellPositionCalculationsServiceTest"
@@ -18,4 +19,5 @@ export default [
     CellPositionCalculationsServiceTest,
     CellBurnCommandTest,
     PlayableFieldServiceTest,
+    BombCommandTest,
 ]

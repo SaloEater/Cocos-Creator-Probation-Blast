@@ -14,7 +14,7 @@ export class CellBurningService implements CellBurningServiceInterface {
     constructor(private similarCellsService: SimilarCellsServiceInterface) {
     }
 
-    burnCellAt(field: Field, column: number, row: number, mininumAmount: number) {
+    burnCellsAt(field: Field, column: number, row: number, mininumAmount: number) {
         let cell = field.getCellAt(column, row)
         let similarCells = this.similarCellsService.findSimilarCells(
             field,
@@ -26,23 +26,21 @@ export class CellBurningService implements CellBurningServiceInterface {
         
         if (similarCells.length >= mininumAmount) {
             this.emitEvent(similarCells.length);
-            similarCells.forEach(i =>
-                this.replaceCell(field, i, cell)
+            similarCells.forEach(i => this.burnCell(field, i, cell)
             )
         }
+    }
 
+    burnCell(field: Field, destroyedCell: CellInterface, originCell: CellInterface): void {
+        return field.setCell(
+            destroyedCell.getColumn(),
+            destroyedCell.getRow(),
+            new CellEmpty(destroyedCell.getColumn(), destroyedCell.getRow())
+        );
     }
 
     protected emitEvent(length: number) {
         EventClass.emitEvent(new CellsBurnStartEvent(length));
-    }
-
-    protected replaceCell(field: Field, i: CellInterface, originCell: CellInterface): void {
-        return field.setCell(
-            i.getColumn(),
-            i.getRow(),
-            new CellEmpty(i.getColumn(), i.getRow())
-        );
     }
 }
 

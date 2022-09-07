@@ -3,6 +3,7 @@ import { CellBurnCommand } from "../../BurnCells/CellBurnCommand";
 import { CellBurnCommandInterface } from "../../BurnCells/CellBurnCommandInterface";
 import { container } from "../../container";
 import { TYPES } from "../../types";
+import { CellActionCommandInterface } from "../CellActionCommandInterface";
 import { CellInterface } from "../CellInterface";
 import { CellPositionCalculationsInterface } from "../CellPositionCalculationsInterface";
 import { CellSimple } from "../CellSimple";
@@ -15,7 +16,7 @@ const { ccclass } = _decorator
 @ccclass
 export class CellVisual extends Component implements CellInterface {
     uiTransform: UITransform
-    cellBurnCommand: CellBurnCommandInterface
+    cellActionCommand: CellActionCommandInterface
     cellState: CellState
     animation: Animation
     cellMovement: CellMovementComponent
@@ -51,10 +52,10 @@ export class CellVisual extends Component implements CellInterface {
     }
 
     burnCell(): void {
-        if (!this.cellBurnCommand) {
-            this.cellBurnCommand = container.get(TYPES.cellBurnCommand)
+        if (!this.cellActionCommand) {
+            this.cellActionCommand = container.get(TYPES.cellActionCommand)
         }
-        this.cellBurnCommand.execute(this.cellColumn, this.cellRow)
+        this.cellActionCommand.execute(this.cellColumn, this.cellRow)
     }
 
     getColumn(): number {
