@@ -1,7 +1,9 @@
 import { _decorator, Component, Button, EventHandler, ButtonComponent, Input, Sprite, ImageAsset, SpriteFrame } from "cc";
 import { CellActionState } from "../../Cell/CellActionState";
 import { container } from "../../container";
+import { EventClass } from "../../Event/event";
 import { TYPES } from "../../types";
+import { BonusChangedEvent } from "../Event/BonusChangedEvent";
 
 const {ccclass, property} = _decorator
 
@@ -31,6 +33,7 @@ export abstract class BonusComponent extends Component {
         }
 
         this.changeState();
+        EventClass.emitEvent(new BonusChangedEvent())
 
         if (this.isCurrentBonusSelected()) {
             this.indicator.spriteFrame = this.turnedOnImage

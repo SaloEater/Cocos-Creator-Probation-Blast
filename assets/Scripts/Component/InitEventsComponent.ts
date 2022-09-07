@@ -68,8 +68,9 @@ export class InitEventsComponent extends Component {
                 ]
             },    
             {
-                'event': EVENT_TYPES.CHECK_GAME_END,
+                'event': EVENT_TYPES.BONUS_CHANGED,
                 'listeners': [
+                    container.get(TYPES.eventHandlerResetSwapStorage)
                 ]
             },    
         ]

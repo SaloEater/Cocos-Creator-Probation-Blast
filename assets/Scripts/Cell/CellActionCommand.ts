@@ -1,5 +1,6 @@
 import { injected } from "saloeater-brandi";
-import { BombCommandInterface } from "../Bomb/BombCommandInterface";
+import { BombCommandInterface } from "../BonusBom/BombCommandInterface";
+import { SwapCommandInterface } from "../BonusSwap/SwapCommandInterface";
 import { CellBurnCommandInterface } from "../BurnCells/CellBurnCommandInterface";
 import { FieldStorageInterface } from "../Field/FieldStorageInterface";
 import { SettingsConfigurationInterface } from "../Settings/SettingsConfigurationInterface";
@@ -16,6 +17,7 @@ export class CellActionCommand implements CellActionCommandInterface {
         private bombCommand: BombCommandInterface,
         private fieldStorage: FieldStorageInterface,
         private settingsConfiguration: SettingsConfigurationInterface,
+        private swapCommand: SwapCommandInterface,
     ) {
     }
 
@@ -26,6 +28,15 @@ export class CellActionCommand implements CellActionCommandInterface {
                 column,
                 row,
                 this.settingsConfiguration.getBombRadius(),
+            )
+            return
+        }
+
+        if (this.cellActionState.isSwap()) {
+            this.swapCommand.execute(
+                this.fieldStorage.get(),
+                column,
+                row
             )
             return
         }
@@ -41,4 +52,5 @@ injected(
     TYPES.bombCommand.optional,
     TYPES.fieldStorage.optional,
     TYPES.settingsConfiguration.optional,
+    TYPES.swapCommand.optional,
 )

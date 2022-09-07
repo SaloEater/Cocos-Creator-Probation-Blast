@@ -1,7 +1,7 @@
 import { token } from "saloeater-brandi";
 import { TestsPipeline } from "../Tests/TestsPipeline";
-import { BombCommandInterface } from "./Bomb/BombCommandInterface";
-import { CellsInRadiusInterface } from "./Bomb/CellsInRadiusServiceInterface";
+import { BombCommandInterface } from "./BonusBom/BombCommandInterface";
+import { CellsInRadiusInterface } from "./BonusBom/CellsInRadiusServiceInterface";
 import { CellBurnCommandInterface } from "./BurnCells/CellBurnCommandInterface";
 import { CellBurningCountStorageInterface } from "./BurnCells/CellBurningCountStorageInterface";
 import { CellBurningServiceInterface } from "./BurnCells/CellBurningServiceInterface";
@@ -33,6 +33,9 @@ import { SettingsConfigurationInterface } from "./Settings/SettingsConfiguration
 import { SimilarCellsServiceInterface } from "./SimilarCells/SimilarCellsServiceInterface";
 import { SquashFieldInterface } from "./SquashField/SquashFieldServiceInterface";
 import { TurnsLeftDecrementEventHandler } from "./TurnsLeft/Event/TurnsLeftDecrementEventHandler";
+import { SwapStorage } from "./BonusSwap/SwapStorage";
+import { ResetSwapStorageEventHandler } from "./BonusSwap/Event/ResetSwapStorageEventHandler";
+import { SwapCommandInterface } from "./BonusSwap/SwapCommandInterface";
 
 const TYPES = {
     testsPipeline: token<TestsPipeline>('testsPipeline'),
@@ -69,6 +72,9 @@ const TYPES = {
     cellActionState: token<CellActionState>('cellActionState'),
     bombCommand: token<BombCommandInterface>('bombCommand'),
     cellsInRadius: token<CellsInRadiusInterface>('cellsInRadius'),
+    swapStorage: token<SwapStorage>('swapStorage'),
+    eventHandlerResetSwapStorage: token<ResetSwapStorageEventHandler>('eventHandlerResetSwapStorage'),
+    swapCommand: token<SwapCommandInterface>('swapCommand'),
 };
 
 export { TYPES };

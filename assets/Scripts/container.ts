@@ -29,8 +29,11 @@ import { GameStateService } from './GameEnd/GameStateService';
 import { CheckGameEndEventHandler } from './GameEnd/Event/CheckGameEndEventHandler';
 import { CellActionCommand } from './Cell/CellActionCommand';
 import { CellActionState } from './Cell/CellActionState';
-import { BombCommand } from './Bomb/BombCommand';
-import { CellsInRadiusService } from './Bomb/CellsInRadiusService';
+import { BombCommand } from './BonusBom/BombCommand';
+import { CellsInRadiusService } from './BonusBom/CellsInRadiusService';
+import { SwapStorage } from './BonusSwap/SwapStorage';
+import { ResetSwapStorageEventHandler } from './BonusSwap/Event/ResetSwapStorageEventHandler';
+import { SwapCommand } from './BonusSwap/SwapCommand';
 
 const container = new Container();
 
@@ -182,6 +185,21 @@ container
 container
     .bind(TYPES.cellsInRadius)
     .toInstance(CellsInRadiusService)
+    .inContainerScope()
+
+container
+    .bind(TYPES.swapStorage)
+    .toInstance(SwapStorage)
+    .inContainerScope()
+
+container
+    .bind(TYPES.eventHandlerResetSwapStorage)
+    .toInstance(ResetSwapStorageEventHandler)
+    .inContainerScope()
+
+container
+    .bind(TYPES.swapCommand)
+    .toInstance(SwapCommand)
     .inContainerScope()
 
 

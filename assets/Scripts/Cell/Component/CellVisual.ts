@@ -40,6 +40,12 @@ export class CellVisual extends Component implements CellInterface {
         this.cellRow = newRow
         this.moveCellCommand.execute(this)
     }
+
+    setCell(newColumn: number, newRow: number) {
+        this.cellColumn = newColumn
+        this.cellRow = newRow
+        this.moveCellCommand.execute(this)
+    }
     
     onLoad() {
         this.uiTransform = this.node.getComponent(UITransform)
