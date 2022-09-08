@@ -58,8 +58,9 @@ export class InitEventsComponent extends Component {
             {
                 'event': EVENT_TYPES.UNPLAYABLE_FIELD_WAS_MIXED,
                 'listeners': [
-                    new CheckFieldIsPlayableEventHandler(),
                     container.get(TYPES.eventHandlerDecrementShuffles),
+                    new CheckGameEndEventHandler(),
+                    new CheckFieldIsPlayableEventHandler(),
                 ]
             },    
             {

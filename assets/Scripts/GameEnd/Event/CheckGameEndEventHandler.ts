@@ -16,11 +16,11 @@ export class CheckGameEndEventHandler implements EventHandlerInterface {
     handle() {
         this.initDI()
         if (this.gameState.isGameWon()) {
-            this.gameSceneDirector.setWinScene()
+            setTimeout(() => this.gameSceneDirector.setWinScene(), 750)
         }
 
         if (this.gameState.isGameLost()) {
-            this.gameSceneDirector.setLoseScene()
+            setTimeout(() => this.gameSceneDirector.setLoseScene(), 750)
         }
     }
 
