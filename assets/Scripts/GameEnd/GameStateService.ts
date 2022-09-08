@@ -20,6 +20,10 @@ export class GameStateService implements GameStateInterface {
         return this.shufflesStorage.get() <= 0
             || this.turnsLeftStorage.get() <= 0
     }
+
+    hasEnd(): boolean {
+        return this.isGameWon() || this.isGameLost()
+    }
 }
 
 injected(

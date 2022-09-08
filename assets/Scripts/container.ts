@@ -64,22 +64,22 @@ container
 container
     .bind(TYPES.gameSpaceService)
     .toInstance(GameSpaceService)
-    .inResolutionScope()
+    .inContainerScope()
 
 container
     .bind(TYPES.cellPositionCalculations)
     .toInstance(CellPositionCalculationsService)
-    .inResolutionScope()       
+    .inContainerScope()       
 
 container
     .bind(TYPES.squashService)
     .toInstance(SquashVisualFieldService)
-    .inResolutionScope()
+    .inContainerScope()
 
 container
     .bind(TYPES.fillFieldService)
     .toInstance(FillVisualFieldService)
-    .inResolutionScope()
+    .inContainerScope()
     
 container
     .bind(TYPES.fieldStorage)
@@ -119,12 +119,12 @@ container
 container
     .bind(TYPES.cellVisualMoveDownCommand)
     .toInstance(CellVisualMoveDownCommand)
-    .inResolutionScope()
+    .inContainerScope()
 
 container
     .bind(TYPES.moveCellVisualToPositionCommand)
     .toInstance(MoveCellVisualToPositionCommand)
-    .inResolutionScope()
+    .inContainerScope()
 
 container
     .bind(TYPES.inputState)
@@ -159,7 +159,7 @@ container
 container
     .bind(TYPES.playableField)
     .toInstance(PlayableFieldService)
-    .inResolutionScope()
+    .inContainerScope()
 
 container
     .bind(TYPES.eventHandlerDecrementShuffles)

@@ -26,19 +26,19 @@ export class CellVisual extends Component implements CellInterface {
     }
 
     setColumn(newColumn: number): void {
-        this.cellColumn = newColumn
-        this.moveCellCommand.execute(this)
+        this.setCell(newColumn, this.cellRow)
     }
 
     setRow(newRow: number): void {
-        this.cellRow = newRow
-        this.moveCellCommand.execute(this)
+        this.setCell(this.cellColumn, newRow)
     }
 
     setCell(newColumn: number, newRow: number) {
         this.cellColumn = newColumn
         this.cellRow = newRow
-        this.moveCellCommand.execute(this)
+        if (this.moveCellCommand) { // Судя по всему сцена меняется асинхронно, но компоненты где-то там висят в памяти
+            this.moveCellCommand.execute(this)
+        }
     }
     
     onLoad() {
