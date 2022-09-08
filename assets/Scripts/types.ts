@@ -46,6 +46,11 @@ import { CellSuperSpawnService } from "./CellSuper/CellSuperSpawnService";
 import { CellSuperLocationStorage } from "./CellSuper/CellSuperLocationStorage";
 import { CellSuperLocationInitialzeEventHandler } from "./CellSuper/Event/CellSuperLocationInitialzeEventHandler";
 import { CellVisualInstanceService } from "./Cell/CellVisualInstanceService";
+import { ClearStorageFieldEventHandler } from "./Field/Event/ClearStorageFieldEventHandler";
+import { InitShuffleStorageEventHandler } from "./MixField/Event/InitShuffleStorageEventHandler";
+import { InitTurnsStorageEventHandler } from "./TurnsLeft/Event/InitTurnsStorageEventHandler";
+import { InitFieldStorageEventHandler } from "./Field/Event/InitFieldStorageEventHandler";
+import { InitFieldFillEventHandler } from "./FillField/Event/InitFieldFillEventHandler";
 
 const TYPES = {
     testsPipeline: token<TestsPipeline>('testsPipeline'),
@@ -95,6 +100,11 @@ const TYPES = {
     cellSuperLocationStorage: token<CellSuperLocationStorage>('cellSuperLocationStorage'),
     eventHandlerCellSuperLocationInitialze: token<CellSuperLocationInitialzeEventHandler>('eventHandlerCellSuperLocationInitialze'),
     cellVisualInstanceService: token<CellVisualInstanceService>('cellVisualInstanceService'),
+    eventHandlerClearStorageField: token<ClearStorageFieldEventHandler>('eventHandlerClearStorageField'),
+    eventHandlerInitShuffleStorage: token<InitShuffleStorageEventHandler>('eventHandlerInitShuffleStorage'),
+    eventHandlerInitTurnsStorage: token<InitTurnsStorageEventHandler>('eventHandlerInitTurnsStorage'),
+    eventHandlerInitFieldStorage: token<InitFieldStorageEventHandler>('eventHandlerInitFieldStorage'),
+    eventHandlerInitFieldFill: token<InitFieldFillEventHandler>('eventHandlerInitFieldFill'),
 };
 
 export { TYPES };

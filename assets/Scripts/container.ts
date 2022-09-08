@@ -43,6 +43,11 @@ import { CellSuperSpawnService } from './CellSuper/CellSuperSpawnService';
 import { CellSuperLocationStorage } from './CellSuper/CellSuperLocationStorage';
 import { CellVisualInstanceService } from './Cell/CellVisualInstanceService';
 import { CellSuperLocationInitialzeEventHandler } from './CellSuper/Event/CellSuperLocationInitialzeEventHandler';
+import { ClearStorageFieldEventHandler } from './Field/Event/ClearStorageFieldEventHandler';
+import { InitShuffleStorageEventHandler } from './MixField/Event/InitShuffleStorageEventHandler';
+import { InitTurnsStorageEventHandler } from './TurnsLeft/Event/InitTurnsStorageEventHandler';
+import { InitFieldStorageEventHandler } from './Field/Event/InitFieldStorageEventHandler';
+import { InitFieldFillEventHandler } from './FillField/Event/InitFieldFillEventHandler';
 
 const container = new Container();
 
@@ -254,6 +259,31 @@ container
 container
     .bind(TYPES.cellVisualInstanceService)
     .toInstance(CellVisualInstanceService)
+    .inContainerScope()
+
+container
+    .bind(TYPES.eventHandlerClearStorageField)
+    .toInstance(ClearStorageFieldEventHandler)
+    .inContainerScope()
+
+container
+    .bind(TYPES.eventHandlerInitShuffleStorage)
+    .toInstance(InitShuffleStorageEventHandler)
+    .inContainerScope()
+
+container
+    .bind(TYPES.eventHandlerInitTurnsStorage)
+    .toInstance(InitTurnsStorageEventHandler)
+    .inContainerScope()
+
+container
+    .bind(TYPES.eventHandlerInitFieldStorage)
+    .toInstance(InitFieldStorageEventHandler)
+    .inContainerScope()
+
+container
+    .bind(TYPES.eventHandlerInitFieldFill)
+    .toInstance(InitFieldFillEventHandler)
     .inContainerScope()
 
 export { container }

@@ -80,6 +80,16 @@ export class InitEventsComponent extends Component {
                     new CellSuperSpawnEventHandler(),
                 ]
             },    
+            {
+                'event': EVENT_TYPES.INIT_GAME,
+                'listeners': [
+                    container.get(TYPES.eventHandlerClearStorageField),
+                    container.get(TYPES.eventHandlerInitShuffleStorage),
+                    container.get(TYPES.eventHandlerInitTurnsStorage),
+                    container.get(TYPES.eventHandlerInitFieldStorage),
+                    container.get(TYPES.eventHandlerInitFieldFill),
+                ]
+            },    
         ]
     }
 }
