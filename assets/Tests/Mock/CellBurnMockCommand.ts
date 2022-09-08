@@ -1,4 +1,3 @@
-import { AnimationClip } from "cc";
 import { injected } from "saloeater-brandi";
 import { CellBurnCommand } from "../../Scripts/BurnCells/CellBurnCommand";
 import { TEST_TYPES } from "../../Scripts/types_test";
@@ -11,5 +10,4 @@ injected(
     TEST_TYPES.testsCellBurningService.optional,
     TEST_TYPES.testsFieldStorage.optional,
     TEST_TYPES.testsSettingsConfiguration.optional,
-    TEST_TYPES.testsInputState.optional
 )

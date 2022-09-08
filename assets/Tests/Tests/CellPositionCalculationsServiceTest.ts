@@ -10,8 +10,7 @@ export class CellPositionCalculationsServiceTest {
     service:  CellPositionCalculationsService
 
     constructor() {
-        let settingsConfiguration = new SettingsConfigurationMockService()
-        container.bind(TEST_TYPES.testsSettingsConfiguration).toConstant(settingsConfiguration)
+        container.bind(TEST_TYPES.testsSettingsConfiguration).toConstant(new SettingsConfigurationMockService())
         container
             .bind(TEST_TYPES.testsCellPositionCalculations)
             .toInstance(CellPositionCalculationsMockService)
