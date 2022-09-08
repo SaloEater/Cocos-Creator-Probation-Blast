@@ -6,7 +6,7 @@ export class SameColumnCellsService extends SimilarCellsService {
     column: number
 
     findCellsOnSameColumn(field: Field, column: number, row: number): CellInterface[] {
-        this.column = row
+        this.column = column
         
         return this.findSimilarCells(
             field,

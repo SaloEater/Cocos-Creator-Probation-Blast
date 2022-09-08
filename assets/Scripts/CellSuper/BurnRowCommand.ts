@@ -4,7 +4,6 @@ import { CellBurningServiceInterface } from "../BurnCells/CellBurningServiceInte
 import { InputStateInterface } from "../CocosCreator/InputStateInterface";
 import { Field } from "../Field/Field";
 import { TYPES } from "../types";
-import { CellSuperBurnCommand } from "./CellSuperBurnCommand";
 import { SameRowCellsService } from "./SameRowCellsService";
 
 export class BurnRowCommand extends BonusBurnCommand {
