@@ -4,6 +4,7 @@ export class CellSuperLocationStorage {
     field: Field
     column: number
     row: number
+    isCellSuper: boolean
 
     setField(field: Field) {
         this.field = field
@@ -15,5 +16,9 @@ export class CellSuperLocationStorage {
 
     setRow(row: number) {
         this.row = row
+    }
+
+    setCellSuper(isCellSuper: boolean) {
+        this.isCellSuper = isCellSuper
     }
 }

@@ -14,6 +14,10 @@ export class CellSuperSpawnEventHandler implements EventHandlerInterface{
 
     handle() {
         this.initDI()
+        if (this.cellSuperLocationStorage.isCellSuper) {
+            return
+        }
+
         if (this.settingsConfiguration.getSuperCellAppearenceAmount() <= this.countStorage.getInitialCount()) {
             this.cellSuperSpawnService.createSuperCell(
                 this.cellSuperLocationStorage.field,

@@ -4,11 +4,12 @@ import { CellVisual } from "../../Cell/Component/CellVisual";
 import { container } from "../../container";
 import { FieldStorageInterface } from "../../Field/FieldStorageInterface";
 import { TYPES } from "../../types";
+import { CellSuper } from "./CellSuper";
 
 const {ccclass} = _decorator
 
 @ccclass
-export class CellBombComponent extends CellVisual {
+export class CellBombComponent extends CellSuper {
     bombCommand: BombCommandInterface
     fieldStorage: FieldStorageInterface
 

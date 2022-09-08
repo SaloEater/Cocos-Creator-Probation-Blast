@@ -3,6 +3,7 @@ import { EventHandlerInterface } from "../../Event/EventHandlerInterface";
 import { Field } from "../../Field/Field";
 import { TYPES } from "../../types";
 import { CellSuperLocationStorage } from "../CellSuperLocationStorage";
+import { CellSuper } from "../Component/CellSuper";
 
 export class CellSuperLocationInitialzeEventHandler implements EventHandlerInterface {
     constructor(
@@ -14,6 +15,9 @@ export class CellSuperLocationInitialzeEventHandler implements EventHandlerInter
         this.cellSuperLocationStorage.setField(field)
         this.cellSuperLocationStorage.setColumn(column)
         this.cellSuperLocationStorage.setRow(row)
+        this.cellSuperLocationStorage.setCellSuper(
+            field.getCellAt(column, row) instanceof CellSuper
+        )
     }
 }
 

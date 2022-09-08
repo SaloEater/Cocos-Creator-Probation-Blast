@@ -4,11 +4,12 @@ import { container } from "../../container";
 import { FieldStorageInterface } from "../../Field/FieldStorageInterface";
 import { TYPES } from "../../types";
 import { BurnColumnCommand } from "../BurnColumnCommand";
+import { CellSuper } from "./CellSuper";
 
 const {ccclass} = _decorator
 
 @ccclass
-export class CellBurnColumnComponent extends CellVisual {
+export class CellBurnColumnComponent extends CellSuper {
     burnColumnCommand: BurnColumnCommand
     fieldStorage: FieldStorageInterface
 
