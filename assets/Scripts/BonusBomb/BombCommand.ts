@@ -1,35 +1,30 @@
 import { injected } from "saloeater-brandi";
+import { BonusBurnCommand } from "../Bonus/BonusBurnCommand";
 import { CellBurningServiceInterface } from "../BurnCells/CellBurningServiceInterface";
-import { CellsBurnStartEvent } from "../BurnCells/Event/CellsBurnStartEvent";
 import { InputStateInterface } from "../CocosCreator/InputStateInterface";
-import { EventClass } from "../Event/event";
 import { Field } from "../Field/Field";
 import { TYPES } from "../types";
 import { BombCommandInterface } from "./BombCommandInterface";
 import { CellsInRadiusInterface } from "./CellsInRadiusServiceInterface";
 
-export class BombCommand implements BombCommandInterface {
+export class BombCommand extends BonusBurnCommand implements BombCommandInterface {
     constructor(
         private cellsInRadius: CellsInRadiusInterface,
-        private cellBurningService: CellBurningServiceInterface,
-        private inputState: InputStateInterface,
+        cellBurningService: CellBurningServiceInterface,
+        inputState: InputStateInterface,
     ) {
+        super(cellBurningService, inputState)
     }
 
-    execute(field: Field, column: number, row: number, radius: number): void {
-        if (!this.inputState.isOn()) {
+    execute(field: Field, column: number, row: number): void {
+        if (!this.isInputOn()) {
             return;
         }
-        
-        let cellsInRadius = this.cellsInRadius.findCellsInRadius(field, column, row, radius)
-        let originCell = field.getCellAt(column, row)
-        cellsInRadius.push(originCell)
-        this.emitEvent(cellsInRadius.length, field, column, row)
-        cellsInRadius.forEach(i => this.cellBurningService.burnCell(field, i, originCell))
-    }
 
-    protected emitEvent(length: number, field: Field, column: number, row: number) {
-        EventClass.emitEvent(new CellsBurnStartEvent(length, field, column, row));
+        let radius = 1
+        
+        let cells = this.cellsInRadius.findCellsInRadius(field, column, row, radius)
+        this.burnCells(cells, field, column, row)
     }
 }
 

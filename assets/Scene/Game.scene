@@ -2106,8 +2106,8 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -4.420999999999999,
-      "y": 2.921000000000003,
+      "x": -0.5890000000000555,
+      "y": 0.526000000000014,
       "z": 0
     },
     "_lrot": {
@@ -2143,7 +2143,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 41.049999999999955,
+      "width": 82.1,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -2179,8 +2179,8 @@
     "_fontSize": 50,
     "_fontFamily": "TrueType",
     "_lineHeight": 40,
-    "_overflow": 0,
-    "_enableWrapText": true,
+    "_overflow": 1,
+    "_enableWrapText": false,
     "_font": {
       "__uuid__": "c517c4e1-2c89-4133-903d-81b53d9a0dfd",
       "__expectedType__": "cc.TTFFont"
@@ -2205,10 +2205,10 @@
     "__prefab": null,
     "_alignFlags": 45,
     "_target": null,
-    "_left": 0.3336933333333335,
-    "_right": 0.39264000000000016,
-    "_top": 0.3125266666666667,
-    "_bottom": 0.35147333333333336,
+    "_left": 0.2224066666666663,
+    "_right": 0.2302600000000004,
+    "_top": 0.32849333333333325,
+    "_bottom": 0.3355066666666668,
     "_horizontalCenter": 0,
     "_verticalCenter": 0,
     "_isAbsLeft": false,
@@ -2220,7 +2220,7 @@
     "_originalWidth": 41.05,
     "_originalHeight": 50.4,
     "_alignMode": 2,
-    "_lockFlags": 0,
+    "_lockFlags": 45,
     "_id": "d0pvy+y8lGAJplNfo1jVTV"
   },
   {
@@ -2305,18 +2305,18 @@
     },
     "_enabled": true,
     "__prefab": null,
-    "_alignFlags": 45,
+    "_alignFlags": 40,
     "_target": null,
-    "_left": 51.02600000000007,
-    "_right": 48.97399999999993,
-    "_top": 5.492999999999995,
-    "_bottom": 94.507,
+    "_left": 0.20410400000000026,
+    "_right": 0.19589599999999974,
+    "_top": 0.02197199999999998,
+    "_bottom": 0.37802800000000003,
     "_horizontalCenter": 0,
     "_verticalCenter": 0,
-    "_isAbsLeft": true,
-    "_isAbsRight": true,
-    "_isAbsTop": true,
-    "_isAbsBottom": true,
+    "_isAbsLeft": false,
+    "_isAbsRight": false,
+    "_isAbsTop": false,
+    "_isAbsBottom": false,
     "_isAbsHorizontalCenter": true,
     "_isAbsVerticalCenter": true,
     "_originalWidth": 150,

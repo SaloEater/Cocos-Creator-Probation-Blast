@@ -1,16 +1,17 @@
 import { injected } from "saloeater-brandi";
+import { BonusBurnCommand } from "../Bonus/BonusBurnCommand";
 import { CellBurningServiceInterface } from "../BurnCells/CellBurningServiceInterface";
 import { InputStateInterface } from "../CocosCreator/InputStateInterface";
 import { Field } from "../Field/Field";
 import { TYPES } from "../types";
 import { CellSuperBurnCommand } from "./CellSuperBurnCommand";
 
-export class BurnFieldCommand extends CellSuperBurnCommand {
+export class BurnFieldCommand extends BonusBurnCommand {
     constructor(
-        private cellBurningService: CellBurningServiceInterface,
+        cellBurningService: CellBurningServiceInterface,
         inputState: InputStateInterface,
     ) {
-        super(inputState)
+        super(cellBurningService, inputState)
     }
 
     execute(field: Field, column: number, row: number) {
@@ -25,9 +26,7 @@ export class BurnFieldCommand extends CellSuperBurnCommand {
             }
         }
 
-        this.emitEvent(cells.length, field, column, row)
-        let originCell = field.getCellAt(column, row)
-        cells.forEach(i => this.cellBurningService.burnCell(field, i, originCell))
+        this.burnCells(cells, field, column, row)
     }
 }
 
